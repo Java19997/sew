@@ -1,0 +1,2751 @@
+# classes2.dex
+
+.class public Lpubgm/loader/activity/LoginActivity;
+.super Lpubgm/loader/utils/ActivityCompat;
+
+
+# static fields
+.field private static final PASS:Ljava/lang/String;
+
+.field public static PASSKEY:Ljava/lang/String;
+
+.field private static final QUESTION:Ljava/lang/String;
+
+.field public static REQUEST_OVERLAY_PERMISSION:I
+
+.field private static final USER:Ljava/lang/String;
+
+.field public static USERKEY:Ljava/lang/String;
+
+
+# instance fields
+.field btnSignIn:Landroidx/appcompat/widget/LinearLayoutCompat;
+
+.field private isCardExpanded:Z
+
+.field private languageSpinner:Landroid/widget/Spinner;
+
+.field private m:Lpubgm/loader/utils/myTools;
+
+.field private prefs:Lpubgm/loader/Component/Prefs;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 2
+
+    const-wide v0, -0x55e40a8865bL
+
+    invoke-static {v0, v1}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lpubgm/loader/activity/LoginActivity;->QUESTION:Ljava/lang/String;
+
+    const-wide v0, -0x56440a8865bL
+
+    invoke-static {v0, v1}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lpubgm/loader/activity/LoginActivity;->USER:Ljava/lang/String;
+
+    const-wide v0, -0x56940a8865bL
+
+    invoke-static {v0, v1}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lpubgm/loader/activity/LoginActivity;->PASS:Ljava/lang/String;
+
+    const-wide v0, -0x56e40a8865bL
+
+    :try_start_26
+    invoke-static {v0, v1}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+    :try_end_2d
+    .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_26 .. :try_end_2d} :catch_32
+
+    :goto_2d
+    const/16 v0, 0x155d
+
+    sput v0, Lpubgm/loader/activity/LoginActivity;->REQUEST_OVERLAY_PERMISSION:I
+
+    return-void
+
+    :catch_32
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/UnsatisfiedLinkError;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lpubgm/loader/utils/FLog;->error(Ljava/lang/String;)V
+
+    goto :goto_2d
+.end method
+
+.method public constructor <init>()V
+    .registers 2
+
+    invoke-direct {p0}, Lpubgm/loader/utils/ActivityCompat;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lpubgm/loader/activity/LoginActivity;->isCardExpanded:Z
+
+    return-void
+.end method
+
+.method private static Login(Lpubgm/loader/activity/LoginActivity;Ljava/lang/String;)V
+    .registers 10
+
+    const/4 v7, 0x0
+
+    const/4 v2, 0x0
+
+    const-string v0, "ۘۡۨۤۦۗ۠ۙۦۘۜۡۗۛۙۧ۠ۥۜ۬ۘۙ۫ۚ۟۬ۖۡۚۛۡ"
+
+    move-object v1, v2
+
+    move-object v3, v2
+
+    :goto_6
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v4
+
+    const/16 v5, 0x111
+
+    xor-int/2addr v4, v5
+
+    xor-int/lit16 v4, v4, 0xa9
+
+    const/16 v5, 0x88
+
+    const v6, -0x27d1c30d
+
+    xor-int/2addr v4, v5
+
+    xor-int/2addr v4, v6
+
+    sparse-switch v4, :sswitch_data_6e
+
+    goto :goto_6
+
+    :sswitch_1a
+    const-string v0, "ۢۖۘۖۘۡۘۜۦۜۘۨۥۖ۠۬۠ۜۡۦۘ۬ۤۥۘۨۚۛ۟ۚۢۚۛۛۧۜۘۘۙۛۗۜ۬ۨۜۛۡ"
+
+    goto :goto_6
+
+    :sswitch_1d
+    const-string v0, "۫ۢۦۘۨ۫ۦۘۨ۟۟۫ۛۡۘۧ۟ۦۘۢۡۗۧ۫ۨۘ۬ۙ۠ۤۙۨۘ۬ۥۥۘ"
+
+    goto :goto_6
+
+    :sswitch_20
+    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v3, 0x7f0c0025
+
+    invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    const-string v0, "ۘۜۚۦۦۦۘۦۜۘۘۛۨۜۘۗۡۗۨۘۦۘۧۛۦۥۨۦۦ۟ۤ۬ۚ۟"
+
+    goto :goto_6
+
+    :sswitch_2e
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    const/4 v1, 0x5
+
+    invoke-direct {v0, p0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+
+    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v1
+
+    const-string v0, "ۚۖۡ۫ۘۚۗ۫ۖۘۨ۟ۜۧۘ۫۠ۛۗۛۤۧۛۘۛ۟ۖۚۖۨۘۖ۟ۜۘ۟ۥۜۘۦۛۖۘۛۘۦۘ"
+
+    goto :goto_6
+
+    :sswitch_43
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    new-instance v4, Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-direct {v4, v7}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v0, v4}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    const-string v0, "ۚۡۥۘ۬ۗۜۘۘۥۘۘۧۚۧۥۧۤۤۗۤ۫۬ۜۘۢۥۡۛ۟ۡۙۨۘ۟۟ۜۘ۬ۛ۟۠ۛۥۘۛۙ۠ۦۙۧ۬۬ۛ"
+
+    goto :goto_6
+
+    :sswitch_52
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+
+    const-string v0, "ۚۙۖۨ۬ۘۜۦۤۨۗۦۘۢۨ۫ۛۚۡۤۙۦۢۤۜۘۘۙۘۢۗۢۗۚۢۖۡ"
+
+    goto :goto_6
+
+    :sswitch_58
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v4, Lpubgm/loader/activity/LoginActivity$8;
+
+    new-instance v5, Lpubgm/loader/activity/LoginActivity$7;
+
+    invoke-direct {v5, p0, v1}, Lpubgm/loader/activity/LoginActivity$7;-><init>(Lpubgm/loader/activity/LoginActivity;Landroid/app/AlertDialog;)V
+
+    invoke-direct {v4, p0, p1, v5}, Lpubgm/loader/activity/LoginActivity$8;-><init>(Lpubgm/loader/activity/LoginActivity;Ljava/lang/String;Landroid/os/Handler;)V
+
+    invoke-direct {v0, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    const-string v0, "۟۟۟ۢۦۨۡۙۜۘۗۜۙۢ۫ۖۛۢۧۚ۬ۜۛۥ۫ۚۥۘۙۤۦ۠ۚۨۗۛۛ۠ۜ۠ۖ۬ۡ۬۟۬ۙ۠ۛۚ۫ۥۘۙۢۥۘ"
+
+    goto :goto_6
+
+    :sswitch_6d
+    return-void
+
+    :sswitch_data_6e
+    .sparse-switch
+        0x1dd3e8d -> :sswitch_1d
+        0x21cff31c -> :sswitch_2e
+        0x257ef908 -> :sswitch_1a
+        0x3b6ff970 -> :sswitch_20
+        0x3e4073c3 -> :sswitch_58
+        0x49226c5a -> :sswitch_43
+        0x4b022b9c -> :sswitch_52
+        0x65fa34dd -> :sswitch_6d
+    .end sparse-switch
+.end method
+
+.method static synthetic access$000(Lpubgm/loader/activity/LoginActivity;)Lpubgm/loader/Component/Prefs;
+    .registers 5
+
+    const-string v0, "ۘۦۢۖ۠۟۟ۧۢۡۛۨۘۧۡۥۘۨ۠ۥۚۜ۠ۚۧۧۢۨۡۘۢۥۢۚۙۘۘۦۜۧۡۧۨۨ۫ۘ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x2fe
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x13a
+
+    const/16 v2, 0x3c1
+
+    const v3, 0x19db1a1e
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_1c
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۖۦ۬ۛۖۖۦۜۧۘۡۤ۠ۚۚۜۘ۠۟۟ۦ۫۟ۗۗ۟ۖ۠ۡۤۥۤۜۛۥۘ۠ۖۤ"
+
+    goto :goto_2
+
+    :sswitch_19
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->prefs:Lpubgm/loader/Component/Prefs;
+
+    return-object v0
+
+    :sswitch_data_1c
+    .sparse-switch
+        -0x1edc865b -> :sswitch_19
+        0x7db944e7 -> :sswitch_16
+    .end sparse-switch
+.end method
+
+.method static synthetic access$100(Lpubgm/loader/activity/LoginActivity;Ljava/lang/String;)V
+    .registers 6
+
+    const-string v0, "ۖ۬ۘ۟ۧۙۗۦۥۨۨۘۖۡۘۘ۠ۖ۬ۧۦۗۛۨ۟۠ۡۘۢۨۘۘ۫ۙۡۘۛۘۛ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x129
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x131
+
+    const/16 v2, 0x3ba
+
+    const v3, -0x2a13bd31
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_24
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۨۤۧۡۡۙۘۧۥۘ۟۟۠ۖۜ۫۫۟ۖۘ۟ۖۘۘ۠ۢۜۘۦۚۖۜۛۖ"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "ۘ۬ۛۧۥۗ۟ۢ۟ۧۤ۠ۘۙۛۘ۠ۡۨ۟ۙۗۖۤ۠ۢۖۘۖۨۦۛۦ۠۠ۜۨۘ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    invoke-static {p0, p1}, Lpubgm/loader/activity/LoginActivity;->Login(Lpubgm/loader/activity/LoginActivity;Ljava/lang/String;)V
+
+    const-string v0, "ۗۢۘۤ۬ۨۘۘ۬ۗ۫ۚۢ۟ۛۢۙ۟۬۠ۘۦۘۘۥۧۗۥۘۘ۠ۗۧ۠ۖۥۙ۬ۜۘ"
+
+    goto :goto_2
+
+    :sswitch_22
+    return-void
+
+    nop
+
+    :sswitch_data_24
+    .sparse-switch
+        0x375f1e1 -> :sswitch_1c
+        0x1a840cfa -> :sswitch_22
+        0x526538d8 -> :sswitch_19
+        0x791712dd -> :sswitch_16
+    .end sparse-switch
+.end method
+
+.method static synthetic access$200(Lpubgm/loader/activity/LoginActivity;)Lpubgm/loader/utils/myTools;
+    .registers 5
+
+    const-string v0, "ۙ۠ۗۚ۠ۗ۠ۘ۫ۗۨۜۘۜۧۧۢۤۜۙۛۜۘ۠ۧۨۘۗۗ۟۬ۡۛۛۧ۟ۥۨۖ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x147
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x138
+
+    const/16 v2, 0x1b6
+
+    const v3, -0x194af22
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_1c
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۜۨ۟ۧۨۛۙۥۘۙۥ۠ۗۤۢۘۘۡ۟ۘۘۚ۟ۜۘۢ۬ۙۤۘۡۘ"
+
+    goto :goto_2
+
+    :sswitch_19
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->m:Lpubgm/loader/utils/myTools;
+
+    return-object v0
+
+    :sswitch_data_1c
+    .sparse-switch
+        -0x73256dfe -> :sswitch_19
+        0x28e0058e -> :sswitch_16
+    .end sparse-switch
+.end method
+
+.method static synthetic access$300(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .registers 6
+
+    const-string v0, "ۜۛۨۘۧ۟ۜۙۘۦ۬ۚ۠ۚۧۨۘۡۘۙۦۧۘۙۡۘ۫ۚۤۧۡۜۥۘ۠ۦۤۖۨۧۧۙۗ۠۟ۢۙۡۘۙۦۨۛۥۡۘۘ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x33f
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x318
+
+    const/16 v2, 0x346
+
+    const v3, -0x21c5200a
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_22
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۦۦۜۢۗ۟ۨۦۨ۠ۡۦۡ۬۟ۡۢۖۦۚ۟ۖۨۘۦۢۖ۫۬ۤۦۨۘۛۤ۠"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "ۦۙ۫ۦۚۨۖۦ۬۫ۗ۫۫ۗۖ۟ۨۘۘۙۨۙۨۢۚ۫ۢۗۧۥۛۘۘ۫ۘۤۜۨۘۜۤۙ۫ۖ۬ۛ۟ۚ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    invoke-static {p0, p1}, Lpubgm/loader/activity/LoginActivity;->native_Check(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    nop
+
+    :sswitch_data_22
+    .sparse-switch
+        -0x24cfa368 -> :sswitch_19
+        -0x1a1b72a3 -> :sswitch_1c
+        0x14df342e -> :sswitch_16
+    .end sparse-switch
+.end method
+
+.method private initializeLanguageSpinner()V
+    .registers 15
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x0
+
+    const-string v0, "ۡۧۤۡۤۖۘۥ۠ۧ۠ۡۤۧۧۜۜۜ۬ۗۜۤۦۢۤۡۦۘۛۨۧ۫۬ۦ۟ۡۚ"
+
+    move v1, v2
+
+    move v3, v2
+
+    move-object v4, v5
+
+    move-object v6, v5
+
+    move-object v7, v5
+
+    move-object v8, v5
+
+    move-object v9, v5
+
+    :goto_b
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v10
+
+    const/16 v11, 0x317
+
+    xor-int/2addr v10, v11
+
+    xor-int/lit8 v10, v10, 0x28
+
+    const/16 v11, 0x3d5
+
+    const v12, -0x42932008
+
+    xor-int/2addr v10, v11
+
+    xor-int/2addr v10, v12
+
+    sparse-switch v10, :sswitch_data_1fa
+
+    goto :goto_b
+
+    :sswitch_1f
+    const-string v0, "۟ۧ۠ۢۦ۟ۚۨۘ۫ۙۥۘۧۧۡۘ۠۬۬ۢۤۡۨ۠ۦۜۧۘ۟۫ۦۘۥۙۡ۟ۖۜۖۜۘ۠ۛ"
+
+    goto :goto_b
+
+    :sswitch_22
+    const v0, 0x7f090331
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Spinner;
+
+    iput-object v0, p0, Lpubgm/loader/activity/LoginActivity;->languageSpinner:Landroid/widget/Spinner;
+
+    const-string v0, "ۗۖۤۙۗ۠ۜۡ۫ۦۘۢۢۤۘۘ۬ۥۨۜۦۤۗۢۡۗۢۦۘ۠ۘۖۛۧ۬ۢۖ۟ۥۖۨۗۤۡۦۚ۫ۤۤۦۥۧۘۜۘۘ"
+
+    goto :goto_b
+
+    :sswitch_30
+    new-instance v9, Ljava/util/ArrayList;
+
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v0, "۬ۖ۟ۦۦۗۥۤۧۜۦۖۘ۬ۙۛ۠ۧۘ۫ۖۘ۫ۙۥۖۥۜۘ۫ۦۨۢۘۜۘۖۤۡۘ"
+
+    goto :goto_b
+
+    :sswitch_38
+    new-instance v0, Lpubgm/loader/utils/LanguageItem;
+
+    const-wide v10, -0x50540a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-wide v12, -0x51240a8865bL
+
+    invoke-static {v12, v13}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v0, v10, v11}, Lpubgm/loader/utils/LanguageItem;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v0, "ۦۛۘۜۧۚۚۚۡۘۗۜۧۘۨۢۦۤۤۥۘۧۥ۬ۖۢۜۤۘۥۡۨۡۘۨۜۚ۬ۥ۫"
+
+    goto :goto_b
+
+    :sswitch_55
+    new-instance v0, Lpubgm/loader/utils/LanguageItem;
+
+    const-wide v10, -0x51540a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-wide v12, -0x51d40a8865bL
+
+    invoke-static {v12, v13}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v0, v10, v11}, Lpubgm/loader/utils/LanguageItem;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v0, "۬ۥۖۘۜۢۖۧۖۘۤۢۥ۠ۨۡۚ۠ۖۘۜۦۥۘۦ۟ۨۘۛۦۘۘ۬ۜۖۤۤ۠ۧۧۤۧۦ۟ۡۧۨۘۦۖۢۨۙۖۗۘۘۘۥ۬ۦۘ"
+
+    goto :goto_b
+
+    :sswitch_72
+    new-instance v0, Lpubgm/loader/utils/LanguageItem;
+
+    const-wide v10, -0x52040a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-wide v12, -0x52d40a8865bL
+
+    invoke-static {v12, v13}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v0, v10, v11}, Lpubgm/loader/utils/LanguageItem;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v0, "۫ۜۥۘۡۖۜۘ۬ۥۡ۠۫ۥۘۘۜۦۘۢ۟ۦۖۨۤۧ۠ۘۘۛۙۛۖۧۢۨۜۦۜۖۨۘۖ۟ۤۡۜۦ"
+
+    goto/16 :goto_b
+
+    :sswitch_90
+    new-instance v0, Lpubgm/loader/utils/LanguageItem;
+
+    const-wide v10, -0x53040a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-wide v12, -0x53d40a8865bL
+
+    invoke-static {v12, v13}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v0, v10, v11}, Lpubgm/loader/utils/LanguageItem;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v0, "ۥۤۡۘ۫ۚۖۘۦ۫ۨۜۖۖۘۛ۫۫ۢۖۧۘۨ۟ۦۘۚۥۖۘ۟ۤۖۘۥۖ۫ۛۨۚ"
+
+    goto/16 :goto_b
+
+    :sswitch_ae
+    new-instance v8, Lpubgm/loader/utils/LanguageSpinnerAdapter;
+
+    const v0, 0x1090008
+
+    invoke-direct {v8, p0, v0, v9}, Lpubgm/loader/utils/LanguageSpinnerAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+
+    const-string v0, "۠ۙۗ۠۬ۡۡۚۤ۠ۡۗۜۨۖۨۡۨۤۛۜۘۜۤۙۧ۬ۢ۬ۨۛ"
+
+    goto/16 :goto_b
+
+    :sswitch_ba
+    const v0, 0x1090009
+
+    invoke-virtual {v8, v0}, Lpubgm/loader/utils/LanguageSpinnerAdapter;->setDropDownViewResource(I)V
+
+    const-string v0, "ۚ۠ۖۘۖ۬ۡۤۨۘۘ۬ۢۜۖ۠ۦ۠۠ۘۘ۬ۡۚۘۚۡۡۤۚۘ۠۬ۧۨۛۨۧۥۢ۠ۚۛۢ"
+
+    goto/16 :goto_b
+
+    :sswitch_c4
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->languageSpinner:Landroid/widget/Spinner;
+
+    invoke-virtual {v0, v8}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+
+    const-string v0, "ۗۜۙۥۚۤ۬ۘۜۘۘۥۤۡ۟ۢۖۦۘۧۜۢۛۦ۠ۥۙ۠۬ۧ۟ۨۖۘۘۜۦ۬ۨۧۨۤ۫ۥۘ۠ۘۧۘ۬ۘۘ"
+
+    goto/16 :goto_b
+
+    :sswitch_cd
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->m:Lpubgm/loader/utils/myTools;
+
+    const-wide v10, -0x54040a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-wide v10, -0x54640a8865bL
+
+    invoke-static {v10, v11}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v0, v7, v10, v5}, Lpubgm/loader/utils/myTools;->getSt(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v0, "ۢۗۖۢۘ۫ۨۚۗۜۨ۬۫ۢۢ۫ۖۜۗۗۚ۬ۨۥ۠ۨۘۢ۫۟ۧۢۥۜۚۢۦۢ۬۟۫"
+
+    goto/16 :goto_b
+
+    :sswitch_e9
+    const-string v0, "ۖۡۦۘۖۛۧ۠ۢ۫ۖ۠۟ۤ۬ۚۚۤ۫ۥۖۡۗۤۦۘۜۗۦۘۧۤۡۢ۠ۚۖۧۛ"
+
+    move-object v6, v7
+
+    goto/16 :goto_b
+
+    :sswitch_ee
+    const v10, -0x3e826197
+
+    const-string v0, "۟ۖۚۡۡۨۘۚۖۧۘۚۦۜۧ۟ۥۥۚۖۨۤ۫ۨ۫۫ۡۖۦۢۗۚۨۜۤۤ۠ۛۨۨۘۛۜۦۘ۫ۚۤۙۙۖۘۗۚ۬ۗۥ"
+
+    :goto_f3
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v11
+
+    xor-int/2addr v11, v10
+
+    sparse-switch v11, :sswitch_data_268
+
+    goto :goto_f3
+
+    :sswitch_fc
+    const v11, -0x3aad1e31
+
+    const-string v0, "ۗۙۛۗۗۨ۫ۥ۟۟ۛۧۡۛ۬ۨۖۜۘۗۚۦۘ۟ۜۙۙۖ۬ۗ۫ۖ"
+
+    :goto_101
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v12
+
+    xor-int/2addr v12, v11
+
+    sparse-switch v12, :sswitch_data_27a
+
+    goto :goto_101
+
+    :sswitch_10a
+    if-nez v7, :cond_112
+
+    const-string v0, "۬ۥ۠ۢۥۧۘۢۖۤۥ۬ۙۗۨۤ۬۬ۨۖۨۥۘ۫ۜۚۨۦۚ۟ۨۘ۟۬ۥۘ۬ۚۡۘۦۢۙ۟۟ۨۘۗۙۘۧ۬ۦۘ"
+
+    goto :goto_101
+
+    :sswitch_10f
+    const-string v0, "۫ۨۖۥۙۖۖۖۗ۫ۙۙۧۙۤۚ۫ۤۗۧۗۗۛۜۘۚ۫ۚۡۢ۫ۗۗۢۡۗۙۨۙۗۜۡ۫ۚۨۖۢۖ"
+
+    goto :goto_f3
+
+    :cond_112
+    const-string v0, "۠ۨ۠۟۬ۢۛۤۥۘ۟ۧۡۢۦۦۤۧۛ۬۠ۤۛۖۢۨ۬ۨۘۡ۟ۛۚۦۧۛۘۘۗۛۨۘۗ۬۬ۗ۬ۧۨۜ۫"
+
+    goto :goto_101
+
+    :sswitch_115
+    const-string v0, "۠ۙۡۘ۠۟ۜ۟ۙۛ۠ۘۥۘ۬ۥ۟ۖۜ۬ۜ۬ۥۡۘ۠۫ۢۦۛ۬ۚۜۢ۫ۜۖۙۚۡۦۘۥۤۥۤۧۧۦۜۜۘ۟۫ۢ۠ۗ"
+
+    goto :goto_101
+
+    :sswitch_118
+    const-string v0, "ۚۥ۠ۘۤۡۘۖۗۦۘۜ۫ۥ۠ۚۡۘۚۤۥۘۖۚۦۤ۠ۜۘۙ۟ۧۛۧ۬ۘۚ۟ۦۦۡۘ۬ۚۖۘ۫ۗۘۙۛۤۜۡ۠"
+
+    goto :goto_f3
+
+    :sswitch_11b
+    const-string v0, "۟۫ۡ۬ۗۘۘۗ۠ۥۘۗۤۡۘۡۡۘۦۖۚۚۥۥۖۤۦۘۘۘۙۗ۫ۡۘۜۥۦۘۖۗۖۧ۬ۛۖۚ۬"
+
+    goto :goto_f3
+
+    :sswitch_11e
+    const-string v0, "۫ۜ۟ۚۗۤۦۦۢۘۥۨۘۜ۬ۖ۠۬ۧۢ۫ۧۛۗۘۖ۠ۦۚۡۙۖۗۚۢۖۧ۟ۜۙۨ۬ۧ۟۠ۢۘۤۨۘ۠ۥۥۘۥۜۛ"
+
+    goto/16 :goto_b
+
+    :sswitch_122
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v0, "ۦۦۨۘۥ۟ۧۙۗۧۖۘۡۘۜۡۧۘۧ۬ۨۘۢۥۜۖۥۦۦۦۙۗۦۚۜۡۦۚۤۦ"
+
+    goto/16 :goto_b
+
+    :sswitch_12e
+    const-string v0, "ۛۡ۟۟ۨۖۘۘۢۚۗۦۧۡۢۚۧۖۧۢۛۥۘۚۖۢۗۚۜۘ۠ۦۜۨۤۙۜۙۛۢۚ۟ۚۧۥۘ"
+
+    move-object v6, v4
+
+    goto/16 :goto_b
+
+    :sswitch_133
+    const-string v0, "ۛۜۢۘ۟۠۫ۚۖۖۙۨۧۛۢۤ۬ۤۜۨۘۛ۬ۛۙۚۨۘ۟ۦۢ۟۠ۡۘۛۛ۬ۨۧۦۘۛۚۥۘ"
+
+    goto/16 :goto_b
+
+    :sswitch_137
+    const-string v0, "ۥۛۢۛۛۡۥۧۛۘۦۜۘ۫ۛۦۘۘ۟۠۟ۖۜ۫ۦۜۤۜۥۗ۟ۤ۠ۨۢۦۥۙ"
+
+    move v3, v2
+
+    goto/16 :goto_b
+
+    :sswitch_13c
+    const v10, -0x5933e686
+
+    const-string v0, "ۜۨۧۘۖۢۨۦۢۥ۟ۗۧۢ۟ۖۥۛۘۛۗۙۚ۬۬ۢ۬ۗۨۘۜۨۜۢۖۦۘۦۤۨۘۨۨۘ"
+
+    :goto_141
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v11
+
+    xor-int/2addr v11, v10
+
+    sparse-switch v11, :sswitch_data_28c
+
+    goto :goto_141
+
+    :sswitch_14a
+    const-string v0, "ۨۧۡۦۢ۬ۥۗۘۘۖۘۘۨۦۜۘۨۘۘۧۚۙۗ۠ۨ۠ۢۥۦ۠ۚۢۧۨ۬ۧۘۥۗۦۥۘۦۘ"
+
+    goto/16 :goto_b
+
+    :sswitch_14e
+    const-string v0, "ۖ۠۫ۧ۫ۢ۫ۚۘۘۢۘۚۗۡ۫ۚۢۤۗ۫ۜۘ۬۫ۜۘۙۢۦۘۛ۫ۨۡۚۖ۬۠ۤۥۛ۠ۤۙۜۡۢۢۛ۬"
+
+    goto :goto_141
+
+    :sswitch_151
+    const v11, -0x5c6a7308
+
+    const-string v0, "ۘ۫ۢۘ۠ۘۘۘۢۖۘۘۦۡۘۙۗ۠ۘۘۘۗۘۜ۫ۡۜۤ۟ۦ۬ۖۜۘۙۙۛۤۜۜۘ۟۬ۦ۠ۙۚۗۢۚ۠ۨ۟ۧۘۙۤۡۢ"
+
+    :goto_156
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v12
+
+    xor-int/2addr v12, v11
+
+    sparse-switch v12, :sswitch_data_29e
+
+    goto :goto_156
+
+    :sswitch_15f
+    const-string v0, "۠ۨ۠ۨۧۚۦۤۨۘ۬۫ۚۛ۠ۨ۬۬ۦۡۖۡۦۗۦۘۜۛۗۧۨۖۘ۬ۡۦ۟ۢۢ۠ۛۗۘ۫ۚۡۤۘۘ۠ۨۡ"
+
+    goto :goto_141
+
+    :cond_162
+    const-string v0, "ۖۨۧۘ۫ۤۖۢ۬ۨۖۦۡۢۤ۫۟ۧ۬ۧۗۡۘۤۘۥۡ۠ۥۦۨ۫ۖ۬ۢ۬ۗۛۧۢۜۘۖۖۧۤۦۡۜۢۗۚۦۛۥۖۖۘ"
+
+    goto :goto_156
+
+    :sswitch_165
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ge v3, v0, :cond_162
+
+    const-string v0, "ۨۚ۫ۧ۫ۘۥۨۥۘۨۚۢۤۙۡۤۘ۫ۛۜۙۘۤۥ۠ۛ۠ۛۗۜۚۘۜۧۖۧۘ۫ۨۨۘۤۖۦ"
+
+    goto :goto_156
+
+    :sswitch_16e
+    const-string v0, "ۢۢۚۥۦۘۗ۟ۖۛۛۘۘۙۜۦۘۦۢۤۛۘۦۘ۫ۜۜۘۚ۬ۖۧۥ۫ۡ۬ۚۖۗۗ"
+
+    goto :goto_156
+
+    :sswitch_171
+    const-string v0, "۫ۢۥۙۘۜۘ۬ۚۢ۠۠ۥۘ۬ۨۗۤۛۚۚ۬ۛۜۙۜ۟ۢ۟ۖۢ۠۟ۚۗۙ۟ۚ۠ۧۤۥۥۘۜۧۙۗۤۜۛ۟ۖۛۗۥۘ"
+
+    goto :goto_141
+
+    :sswitch_174
+    const v10, 0x620b5de6
+
+    const-string v0, "ۘ۫ۘۡۥۘۧۘ۬ۢۗۨۦ۟ۨۨۗۛۖۗۥۚۢۛۘۖ۟ۡۜۘۛۧۤۥۢۖۡۢۧۜۖۘ"
+
+    :goto_179
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v11
+
+    xor-int/2addr v11, v10
+
+    sparse-switch v11, :sswitch_data_2b0
+
+    goto :goto_179
+
+    :sswitch_182
+    const v11, 0x33899ff8
+
+    const-string v0, "۠ۡۜۘۜۢۤۦۙۗۜۛۥۘۚۥۤۖۘۦۗۛۥۘۚۛۥۘۥۦۦۘۗۨۦۤۘۗۖۚۤ۟ۧۖۦۧۥۘۗۗۙۙۘۘۦۙۛ۫ۛۜ"
+
+    :goto_187
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v12
+
+    xor-int/2addr v12, v11
+
+    sparse-switch v12, :sswitch_data_2c2
+
+    goto :goto_187
+
+    :sswitch_190
+    const-string v0, "ۥۙۢ۫ۗۚۖۧ۟ۢۦۨۘۡۦۘۘۜۘۨ۫ۦ۠ۦ۠ۤ۬۟۟ۥۖۘۛۘۥۘۜۖۨۘۛۧۙ۟ۙۡۙ۬ۖۘۜۥۨۘۛۘۗۘ۟ۨ"
+
+    goto :goto_187
+
+    :sswitch_193
+    const-string v0, "ۚ۠ۙ۫ۦۦۥۤۛۦۤۗۧ۠ۥۘۦۙۘۢۡۘۘۡۢۨۘۚ۠ۤۥۤۘۜۜۧۥۦۛۗۚۦۧۘۥۨۥۢۙ۫۫۫ۥۖۨ"
+
+    goto :goto_179
+
+    :cond_196
+    const-string v0, "ۜۧۜ۫۟ۙۢۖۖۘ۫۠ۖۘۚۜۤۜۥۖۧۤۘۜۢۡۥۘ۟ۢۥۛۙۙۡۘ۠ۛ۬"
+
+    goto :goto_187
+
+    :sswitch_199
+    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lpubgm/loader/utils/LanguageItem;
+
+    invoke-virtual {v0}, Lpubgm/loader/utils/LanguageItem;->getCode()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_196
+
+    const-string v0, "۟۠ۙۙۙۖۘۜۧ۬۫ۗۡۘ۟ۤۨۘۧۦۡ۬ۚۢ۟ۗ۠۬۫ۦۘۨ۠ۘ۫۫ۥۢۘۗۗۢ۬ۖۨۘۥۧۨۤ۠ۡ"
+
+    goto :goto_187
+
+    :sswitch_1ac
+    const-string v0, "۫۬ۖۤ۟ۥۥۘۙۚۚۛ۬ۨۘۧۘۖۘ۟۫ۖۡۥۘ۫ۢۜۘۜ"
+
+    goto :goto_179
+
+    :sswitch_1af
+    const-string v0, "ۨۗۦۙ۠ۦۘ۬ۨۡۘۜۢۗۗۦ۟ۨۜۡۛۚۖۜۘۧۘۘۤۦۘۢۚ"
+
+    goto :goto_179
+
+    :sswitch_1b2
+    const-string v0, "ۘ۟ۨۘۨۡۜۨۦ۬ۖ۫ۛۦۥۙۚۢۡۘ۬ۤۧ۟۠ۢۢۙۗ۠ۧۙۙ۠ۖۘ۫ۨ۫۠ۗۖۘۤۖۦۘ"
+
+    goto/16 :goto_b
+
+    :sswitch_1b6
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->languageSpinner:Landroid/widget/Spinner;
+
+    invoke-virtual {v0, v3}, Landroid/widget/Spinner;->setSelection(I)V
+
+    const-string v0, "ۚۤۘۘۜۜۗۢۢۚ۫ۘ۫ۧۦۦۖۦۦۤۛۤۢۙۨ۠ۘۜۘ۠ۛۜۘ۟ۚۘۛۚۨۧ۬ۤ۬ۨۥۗۤۚۖۘۘ۫ۘۛ۠ۡ"
+
+    goto/16 :goto_b
+
+    :sswitch_1bf
+    add-int/lit8 v1, v3, 0x1
+
+    const-string v0, "ۧۤۢۥۙۜۘۥ۟ۧۦ۬۟ۦ۬ۦۧۖۛۧۚۥۖۨ۟۟۟ۙ۬ۙۡۘۢ۫ۢ۟ۚۨ۟۫ۤۢۧۡۗۡ۠ۜۚ"
+
+    goto/16 :goto_b
+
+    :sswitch_1c5
+    const-string v0, "۟ۖ۟۠ۙۖۥ۟ۖۦۦ۠ۗۥۘۚۖ۟۫ۗ۬ۙ۟۬ۧ۫ۖۘۛۜۢۚۖۧ۟ۥۥۘ۠ۘۜۘ۬ۤۤۜۛۥۘ۠ۘ۠ۛۥۧۚۙۧ"
+
+    move v3, v1
+
+    goto/16 :goto_b
+
+    :sswitch_1ca
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->languageSpinner:Landroid/widget/Spinner;
+
+    new-instance v10, Lpubgm/loader/activity/LoginActivity$5;
+
+    invoke-direct {v10, p0}, Lpubgm/loader/activity/LoginActivity$5;-><init>(Lpubgm/loader/activity/LoginActivity;)V
+
+    invoke-virtual {v0, v10}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    const-string v0, "ۡۦۛۤۢۢۢۦۦۥۤۦۘۙۤۦ۟ۨۘۘۘۢۤۜۡۙۨۖ۠ۚۢ"
+
+    goto/16 :goto_b
+
+    :sswitch_1d8
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->languageSpinner:Landroid/widget/Spinner;
+
+    const v10, 0x7f0700d1
+
+    invoke-virtual {p0, v10}, Lpubgm/loader/activity/LoginActivity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    invoke-virtual {v0, v10}, Landroid/widget/Spinner;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    const-string v0, "۠ۧ۬ۖ۬ۙۛۨ۟ۗۙۤۦۥۡۘۙۖ۫ۧ۬ۜۘ۠ۖۖۧۥ۟ۦ۠ۥۖ۫ۚ۬ۜ۬ۡۤ۠ۢ۬ۥۘۡۥۜۘۙۢۗۜ۠ۡۧۚ۟"
+
+    goto/16 :goto_b
+
+    :sswitch_1e8
+    const-string v0, "ۛۡ۟۟ۨۖۘۘۢۚۗۦۧۡۢۚۧۖۧۢۛۥۘۚۖۢۗۚۜۘ۠ۦۜۨۤۙۜۙۛۢۚ۟ۚۧۥۘ"
+
+    goto/16 :goto_b
+
+    :sswitch_1ec
+    const-string v0, "ۥۛۢۛۛۡۥۧۛۘۦۜۘ۫ۛۦۘۘ۟۠۟ۖۜ۫ۦۜۤۜۥۗ۟ۤ۠ۨۢۦۥۙ"
+
+    goto/16 :goto_b
+
+    :sswitch_1f0
+    const-string v0, "۟ۘۨۛ۟ۗ۠ۛۧۖۗۖۛۦۘۘ۠ۤۜۘۗۖ۬ۡۨۧۤۨۜۧۘ۫ۜۧۘۘ۟ۜۘ۬ۖۗۨۜۦۘۤۦۥۘۥۤ۫ۢ۫ۜۘۘ۬ۡ"
+
+    goto/16 :goto_b
+
+    :sswitch_1f4
+    const-string v0, "ۙ۫ۨۤۦۥۘۚ۬ۨۥۢۗۦۦۤ۫۠ۘۖۘ۬ۗۛۢۙۥ۫ۡۘ۠ۖ۠ۘۘۧۢۨۘۧۙ۫ۛۥ۬ۦۖۨۘ۬ۗۚ"
+
+    goto/16 :goto_b
+
+    :sswitch_1f8
+    return-void
+
+    nop
+
+    :sswitch_data_1fa
+    .sparse-switch
+        -0x76846fd5 -> :sswitch_ba
+        -0x75ffee54 -> :sswitch_133
+        -0x3e603643 -> :sswitch_90
+        -0x3c5ce336 -> :sswitch_ae
+        -0x3b645aa3 -> :sswitch_137
+        -0x2f857456 -> :sswitch_e9
+        -0x293f9f98 -> :sswitch_22
+        -0x2371b20d -> :sswitch_1f4
+        -0x1d6ec33f -> :sswitch_55
+        0xca0aab3 -> :sswitch_1bf
+        0x1286ad03 -> :sswitch_174
+        0x13584c0e -> :sswitch_cd
+        0x1fcaa4e1 -> :sswitch_c4
+        0x23fab7a9 -> :sswitch_12e
+        0x2541372b -> :sswitch_1f8
+        0x31fee0ed -> :sswitch_122
+        0x3543bc4a -> :sswitch_72
+        0x36aa7115 -> :sswitch_1c5
+        0x36faa7bb -> :sswitch_1b6
+        0x36fcf2e4 -> :sswitch_ee
+        0x4d1976ae -> :sswitch_30
+        0x6136a4f7 -> :sswitch_1ca
+        0x62b0f478 -> :sswitch_1ec
+        0x669a6e13 -> :sswitch_1d8
+        0x6c7a35e6 -> :sswitch_13c
+        0x6e8973c8 -> :sswitch_38
+        0x7dd5d97f -> :sswitch_1f
+    .end sparse-switch
+
+    :sswitch_data_268
+    .sparse-switch
+        -0x6990d3a8 -> :sswitch_1e8
+        -0x40ef7458 -> :sswitch_11b
+        -0x2f348f67 -> :sswitch_11e
+        0x60782002 -> :sswitch_fc
+    .end sparse-switch
+
+    :sswitch_data_27a
+    .sparse-switch
+        -0x582d1da4 -> :sswitch_10a
+        -0x3f9c4fdb -> :sswitch_115
+        -0x1f23294e -> :sswitch_118
+        0xc4a8d03 -> :sswitch_10f
+    .end sparse-switch
+
+    :sswitch_data_28c
+    .sparse-switch
+        -0x5701df84 -> :sswitch_151
+        -0x2aa0d462 -> :sswitch_171
+        -0x29075587 -> :sswitch_1f4
+        -0x1513e45d -> :sswitch_14a
+    .end sparse-switch
+
+    :sswitch_data_29e
+    .sparse-switch
+        -0x2a4fc04f -> :sswitch_14e
+        0xf938e37 -> :sswitch_16e
+        0x44994c76 -> :sswitch_15f
+        0x705572cc -> :sswitch_165
+    .end sparse-switch
+
+    :sswitch_data_2b0
+    .sparse-switch
+        -0x4c021bd2 -> :sswitch_182
+        -0x48f12137 -> :sswitch_1b2
+        -0x119bc90b -> :sswitch_1f0
+        0x691a02bc -> :sswitch_1af
+    .end sparse-switch
+
+    :sswitch_data_2c2
+    .sparse-switch
+        -0x7a0a57aa -> :sswitch_1ac
+        -0x680bfb46 -> :sswitch_193
+        -0x18ab3b40 -> :sswitch_190
+        0x20a2a44a -> :sswitch_199
+    .end sparse-switch
+.end method
+
+.method private static native native_Check(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+.end method
+
+.method private setLightStatusBar(Landroid/app/Activity;)V
+    .registers 6
+
+    const-string v0, "۟ۨۡ۬ۡۤۖۖۘۥۛۘۘۚۘۦۡ۬ۤۙۜۡۤۜ۟ۡۡۨ۫ۜۚ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x1f4
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x226
+
+    const/16 v2, 0x323
+
+    const v3, 0x317cacbf
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_4c
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۧۥۨۖۡۘۘۚۢۙۦۥ۬ۥ۬ۡۛ۠۠۟ۘۦۨۙۧ۫ۦۨۘۦۘۥۘۤ۟ۡۛۧۤۚۗۘۥۨۚۗ۠۟ۘ۬"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "ۜۢ۫۠۫۫ۚۚۡ۟ۥۢۗۥۥۨۢۖۘۜۗ۬ۙۘۚۤۢۢۡۥۡۦ۟ۧۜۧۜۘۢۙۧۖ۬ۥۘۡ۬ۡۘۧ۬ۥ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const-wide v2, -0x54e40a8865bL
+
+    invoke-static {v2, v3}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
+
+    const-string v0, "ۗۖۥۘۧۡۖ۟ۦۖۘۦ۠ۥۘۨ۬ۢۥۧ۬۬ۥۘۘ۫ۚۖۤۗۨۦۥۘ۠ۤ۟ۥ۫ۘۘۘۦۜۡۤۦۘۡۤۙ۟۠ۙ"
+
+    goto :goto_2
+
+    :sswitch_33
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const-wide v2, -0x55640a8865bL
+
+    invoke-static {v2, v3}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setNavigationBarColor(I)V
+
+    const-string v0, "ۙۦ۟ۘۘۛۢۢۚۙۦۛ۫ۡۘۚ۠ۖۘۡۡۧۘۡۦۜۘۡۚۘۘ۟ۖۧۘ"
+
+    goto :goto_2
+
+    :sswitch_4a
+    return-void
+
+    nop
+
+    :sswitch_data_4c
+    .sparse-switch
+        -0x54bad16c -> :sswitch_1c
+        -0x24d8315c -> :sswitch_33
+        0xd601a1f -> :sswitch_19
+        0x620f740e -> :sswitch_4a
+        0x7e1f8d3c -> :sswitch_16
+    .end sparse-switch
+.end method
+
+
+# virtual methods
+.method public OverlayPermision()V
+    .registers 6
+
+    const/4 v1, 0x0
+
+    const-string v0, "۬ۡۦۘۖ۬ۧ۬ۗۖۜۛۖۥۢ۠ۨۤۡۘ۟ۚۘۘۜ۟ۦۥۖۥۘۢۚۧ"
+
+    :goto_3
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    const/16 v3, 0x12f
+
+    xor-int/2addr v2, v3
+
+    xor-int/lit16 v2, v2, 0x2b5
+
+    const/16 v3, 0x9d
+
+    const v4, 0x42f5e9ae
+
+    xor-int/2addr v2, v3
+
+    xor-int/2addr v2, v4
+
+    sparse-switch v2, :sswitch_data_be
+
+    goto :goto_3
+
+    :sswitch_17
+    const-string v0, "ۖۗۜۘۡۚۘۧ۠ۨۥ۬ۧۥۘۘۘۘۛۤۖۚۙۙۗ۫۬ۥ۬ۨۘۜۘ"
+
+    goto :goto_3
+
+    :sswitch_1a
+    const v2, -0x48e3c17
+
+    const-string v0, "ۧ۬ۡۘۜۥۡ۟ۚۖۘ۟ۚۥۗۧۥۘۙۜۘۤۡۨۙۦۡۤۡ۫ۦۖ"
+
+    :goto_1f
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_e4
+
+    goto :goto_1f
+
+    :sswitch_28
+    const v3, -0x73fd269f
+
+    const-string v0, "ۙۛۡۘ۫ۡ۬ۜۢۜۘۘۜۨۛۜۘ۠۫ۧۦۡ۠ۡ۬۬۬۬ۤۜ۟ۚ"
+
+    :goto_2d
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v4
+
+    xor-int/2addr v4, v3
+
+    sparse-switch v4, :sswitch_data_f6
+
+    goto :goto_2d
+
+    :sswitch_36
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v4, 0x17
+
+    if-lt v0, v4, :cond_42
+
+    const-string v0, "ۗۧۨۙۡۡۘ۟۬ۘۘۗۚۦۘۥۖۜۘۧ۬۬ۙۗۛۨۜۖۘۤۚۥۡۡۘۘۦ۬ۘۜۦۖۧۛۨۥۗۜۨ۠ۥۖۖۘۡۘۖۘۛۗۖ"
+
+    goto :goto_2d
+
+    :sswitch_3f
+    const-string v0, "۟ۨۖۘ۬ۙۦۦۘۦۘۛۡۡ۬ۨۙۖۧۥ۬۟۫ۙۖ۬ۚ۟ۥۢۚۤۨ۫۟ۢۚۢ۬ۦۦ۫ۨۧۚۦۢۧ۫"
+
+    goto :goto_1f
+
+    :cond_42
+    const-string v0, "۟ۗۥۢ۟ۦ۠ۢۡۘۨۡۥۘۛۨۧ۟ۡۡۘۢۚۗۦ۟ۥۗ۫ۨۘ۠ۗۨۘۘ۟ۦۘۥۚۨ"
+
+    goto :goto_2d
+
+    :sswitch_45
+    const-string v0, "ۦۘۥۧ۟ۥۘۥ۫ۢۧۗۜۢۤۛۥ۫ۜ۬ۜۢۨ۫ۧ۠ۧۦ۬ۦۗۤۘۡۗ۫ۨۧ۟ۛۢ۠ۘۘ"
+
+    goto :goto_2d
+
+    :sswitch_48
+    const-string v0, "ۤۦۜۘۗ۬ۨۘ۬ۡۡ۟ۡۘۤۙۖ۟ۨۗۘۚۙۨۚۚۦۘۙۗۛۤۜۧ۠ۙۦ"
+
+    goto :goto_1f
+
+    :sswitch_4b
+    const-string v0, "ۜۨۦۘۚۖۜۙۢۡۚۗۙ۟ۗ۠ۦ۫۠ۡۘۜۖ۟ۚۗۙۘۤۚ"
+
+    goto :goto_1f
+
+    :sswitch_4e
+    const-string v0, "ۖۘۘۘ۠۠ۦۗۚۘۦۢۘ۬۬ۤۥ۠ۦۜ۟ۜۤۢۙۚۡۨۘ۟۬ۤ"
+
+    goto :goto_3
+
+    :sswitch_51
+    const v2, -0x16288f68
+
+    const-string v0, "ۚۚۖۘۚۚۧۧ۠۫۠ۧۨۦۡ۟ۦۘۗۗۜۘۙ۠ۨۘۦ۠۠ۥ۟ۘۘ۟۬ۨۘۧۤۡۢۘۥۗۛ"
+
+    :goto_56
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_108
+
+    goto :goto_56
+
+    :sswitch_5f
+    const-string v0, "ۘۢۘۘۙ۟ۨۘ۟ۢۢۨۚۘۘۡۜۘۘۦۧۨۥۥ۠ۚۢۡۙۖۗۥۚ۟"
+
+    goto :goto_3
+
+    :sswitch_62
+    const-string v0, "ۦۦۡۘ۫ۡۦۖ۬ۧۧۖۚ۟ۙۡۘ۬ۤۖۘ۫ۘۡۘۢۤۡۘۥۦۧۤۦۤ"
+
+    goto :goto_56
+
+    :sswitch_65
+    const v3, -0x3679cf5a
+
+    const-string v0, "ۥۥۢۘۡۥۘ۠ۨۖۘۢۘۦۘۙۧۡۡۚ۫ۨۡۖۙۥۖۘۛۥ۠ۜۢۧ"
+
+    :goto_6a
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v4
+
+    xor-int/2addr v4, v3
+
+    sparse-switch v4, :sswitch_data_11a
+
+    goto :goto_6a
+
+    :sswitch_73
+    const-string v0, "ۡۚۥۘ۠ۦ۫۠ۖۗۧۛ۬ۛۧۥ۫۟ۘۘۤۦۧۘۙ۬ۜۡ۬ۡۘۦۨۛۘۤۡۘ۠ۗۖۘۦۧۘۤۡۧ"
+
+    goto :goto_56
+
+    :cond_76
+    const-string v0, "۟ۖۖۘۛۘ۟ۘۖ۬ۚ۫ۦۘ۠ۚ۬ۦ۫ۨۖۗۖۙۨۘۥۚۨ۬ۢ۬ۘۥۜۘۜۥۦۘ"
+
+    goto :goto_6a
+
+    :sswitch_79
+    invoke-static {p0}, Landroid/provider/Settings;->canDrawOverlays(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_76
+
+    const-string v0, "ۨۘۖۘۤۚۗۥۥۨۘۖۧۘ۠ۗۙۤۚ۬ۚۘۖۤۘۡۙۖۦۦۢۥۚۚۜۘۨۖۡۘ"
+
+    goto :goto_6a
+
+    :sswitch_82
+    const-string v0, "ۧۖۨۘ۫ۨ۫۬ۘۧۗۘ۫ۚۥ۬ۡۗۦۘۗۡۦۘ۫۫ۖۘۤ۟ۜۢۨۗۨ۫ۥۥۡۧۧۢۦۢۦۘۙۚۦۗۥۢۚۥۘ۬ۖۦ"
+
+    goto :goto_6a
+
+    :sswitch_85
+    const-string v0, "ۨۜۜ۟ۡ۬ۗۘۖۘۧۢۖۗۘۛ۟ۥۡۤۢۘۘ۟۫ۘ۟ۛۦۘۘ۠ۡۘۛۘۗۧۢ۬۟ۥۧ۬ۨ۫۫ۗ۫۬ۜ۟ۗۖ۬ۘۥۘ"
+
+    goto :goto_56
+
+    :sswitch_88
+    const-string v0, "ۚۡۖۨۦ۫ۨۥۖۨۡۜۧۙۡۘۥۗۢۦۡۦۘۢۖۥۘۢۥۚۘۛۗ"
+
+    goto/16 :goto_3
+
+    :sswitch_8c
+    new-instance v1, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
+
+    invoke-direct {v1, p0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;-><init>(Landroid/content/Context;)V
+
+    const-string v0, "ۤۦ۫ۗۘۛ۬ۡۨۚ۬ۨۘۦۦۧۨۜۙۢۢ۬ۙ۬۠۟ۡ۬ۗ۟ۦۦۖۗۛۢۡۙۨۙۛۢۛۥۦۘۘ۫ۥۡۖۦۘۘ۟"
+
+    goto/16 :goto_3
+
+    :sswitch_95
+    const v0, 0x7f1200f2
+
+    invoke-virtual {v1, v0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setMessage(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
+
+    const-string v0, "ۖ۟ۡ۟ۨۘۦۡۘۦۜۜ۟ۥۦۨۢۡۘۦۢۨۘۨۥۨۘۢۚۢۦ۟ۚۦۚۥۤۖۨۘ۠ۨۧۤۦ۫ۜ۟۫ۨ۠ۜۘ"
+
+    goto/16 :goto_3
+
+    :sswitch_9f
+    const v0, 0x7f120134
+
+    new-instance v2, Lpubgm/loader/activity/LoginActivity$6;
+
+    invoke-direct {v2, p0}, Lpubgm/loader/activity/LoginActivity$6;-><init>(Lpubgm/loader/activity/LoginActivity;)V
+
+    invoke-virtual {v1, v0, v2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
+
+    const-string v0, "ۢۦ۬۠۟ۧۘ۟ۙ۫ۖۢ۠ۤ۠۫۬ۛۘۤۤ۠ۛۗ۬ۖۢۖۜۜ۫۫ۘ۫ۘۨ"
+
+    goto/16 :goto_3
+
+    :sswitch_ae
+    const/4 v0, 0x0
+
+    invoke-virtual {v1, v0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setCancelable(Z)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
+
+    const-string v0, "۟ۘۧۤۖۦۖۤۙۗۛ۟۫ۜۚۤۦۘۚ۫ۨۘۚ۫ۛۢۘۨۘۤ۬ۜۨ۫ۤۡۡۨۛۢۘۗ۫"
+
+    goto/16 :goto_3
+
+    :sswitch_b6
+    invoke-virtual {v1}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->show()Landroidx/appcompat/app/AlertDialog;
+
+    const-string v0, "ۘۢۘۘۙ۟ۨۘ۟ۢۢۨۚۘۘۡۜۘۘۦۧۨۥۥ۠ۚۢۡۙۖۗۥۚ۟"
+
+    goto/16 :goto_3
+
+    :sswitch_bd
+    return-void
+
+    :sswitch_data_be
+    .sparse-switch
+        -0x53a85273 -> :sswitch_bd
+        -0x206f86f6 -> :sswitch_17
+        0x1d7fddbf -> :sswitch_b6
+        0x1db3a545 -> :sswitch_51
+        0x20908f85 -> :sswitch_1a
+        0x3d99a9d4 -> :sswitch_95
+        0x4c102b81 -> :sswitch_ae
+        0x5f7bfb79 -> :sswitch_8c
+        0x716cb129 -> :sswitch_9f
+    .end sparse-switch
+
+    :sswitch_data_e4
+    .sparse-switch
+        -0x74f7c572 -> :sswitch_4e
+        -0x5f3e557e -> :sswitch_5f
+        -0x3afad329 -> :sswitch_4b
+        0x4885b71d -> :sswitch_28
+    .end sparse-switch
+
+    :sswitch_data_f6
+    .sparse-switch
+        -0x409f0538 -> :sswitch_45
+        -0x895cbcf -> :sswitch_3f
+        0x2f178d3e -> :sswitch_48
+        0x6dc352b8 -> :sswitch_36
+    .end sparse-switch
+
+    :sswitch_data_108
+    .sparse-switch
+        -0x4f7e1391 -> :sswitch_65
+        -0x65f96b1 -> :sswitch_88
+        0x2f6d8b55 -> :sswitch_85
+        0x514f8daf -> :sswitch_5f
+    .end sparse-switch
+
+    :sswitch_data_11a
+    .sparse-switch
+        -0x402c4851 -> :sswitch_73
+        -0x1540422c -> :sswitch_82
+        0x2755e972 -> :sswitch_62
+        0x71f28961 -> :sswitch_79
+    .end sparse-switch
+.end method
+
+.method public initDesign()V
+    .registers 11
+
+    const/4 v5, 0x0
+
+    const-string v0, "ۤۤۢۥۛ۟ۗ۠ۛ۠۫ۥ۫ۡ۫ۘ۫۠ۢۜۧۘۙۗۘ۟ۛ۟ۚ۫ۥۥۙ۬ۖۖۘۘ۫ۨۘۗۦۡۘۜۡۨۛۥ۟۫۫ۖۘۘۗۡ"
+
+    move-object v1, v0
+
+    move-object v6, v5
+
+    move-object v4, v5
+
+    move-object v3, v5
+
+    move-object v2, v5
+
+    :goto_8
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    const/16 v5, 0x32a
+
+    xor-int/2addr v0, v5
+
+    xor-int/lit16 v0, v0, 0x13e
+
+    const/16 v5, 0x297
+
+    const v7, -0x506a5843
+
+    xor-int/2addr v0, v5
+
+    xor-int/2addr v0, v7
+
+    sparse-switch v0, :sswitch_data_196
+
+    goto :goto_8
+
+    :sswitch_1c
+    const-string v0, "ۙۘ۬۠ۜۧۘۡۘۘ۫ۡۦ۟ۘۗ۬ۜ۠ۦ۟ۖۘۡۜۙۙ۟ۡۤۡۥۜ۫ۖۢ۫۠۫ۖ۬ۚ۠ۗۚۖۘۨۨ۬"
+
+    move-object v1, v0
+
+    goto :goto_8
+
+    :sswitch_20
+    invoke-static {p0}, Lpubgm/loader/Component/Prefs;->with(Landroid/content/Context;)Lpubgm/loader/Component/Prefs;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lpubgm/loader/activity/LoginActivity;->prefs:Lpubgm/loader/Component/Prefs;
+
+    const-string v0, "ۘۖۨۘ۫ۧۜۖۥۤۥۜۙۧۜ۟ۤۜ۠ۙۥۜۘۜۨۢۗۗ۟ۗۗ۫ۘۡۘۧۥۚ۠۠ۙۚۚ۫ۤۤۖۖ۟ۥۘ"
+
+    move-object v1, v0
+
+    goto :goto_8
+
+    :sswitch_2a
+    const v0, 0x7f090367
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    const-string v1, "ۥ۠ۙۧۙ۠ۨۡۘ۠ۨۘۛۡ۬ۖۢۨۘۗۙۢۖۦۜۡۛۥۘ۠ۧۚ"
+
+    move-object v2, v0
+
+    goto :goto_8
+
+    :sswitch_37
+    const v0, 0x7f090362
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    const-string v1, "۬ۧۖۘۛۙ۫ۨۜۚۖ۬ۥۨ۫ۥۘۖۛۤۢۛۘۦۡۙ۠ۡۧۦ۫ۦۚۨۦۘۨۥۧ"
+
+    move-object v3, v0
+
+    goto :goto_8
+
+    :sswitch_44
+    const v0, 0x7f09028a
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    const-string v1, "ۗ۬ۜۘۖۚۦۘۨ۬ۖۘۘۘۗۜۧۘ۫ۜۧۧ۫۟ۘۘۘ۬ۙ۠ۨۡ۬ۗۗ۫ۦۦۘۤۥۖ۫ۥۧۗۜۥۘۥۤ۫ۦۨۜ۠ۛۜ"
+
+    move-object v4, v0
+
+    goto :goto_8
+
+    :sswitch_51
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->prefs:Lpubgm/loader/Component/Prefs;
+
+    const-wide v8, -0x4f940a8865bL
+
+    invoke-static {v8, v9}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide v8, -0x4fe40a8865bL
+
+    invoke-static {v8, v9}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v1, v5}, Lpubgm/loader/Component/Prefs;->read(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    const-string v0, "۠ۛۥۘۘۘ۠ۚ۫۬ۤۦۧۜ۟ۖۘ۬ۤۤۛۘۛۙۦ۟۬ۚ۠ۛ۬ۧۥۨۖۘۚۨ۟ۡۢۡۜۙۢۢۖۧۘۛۘۜ۠ۖ۠ۨۙۖ"
+
+    move-object v1, v0
+
+    goto :goto_8
+
+    :sswitch_70
+    iget-object v0, p0, Lpubgm/loader/activity/LoginActivity;->prefs:Lpubgm/loader/Component/Prefs;
+
+    const-wide v8, -0x4ff40a8865bL
+
+    invoke-static {v8, v9}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide v8, -0x50440a8865bL
+
+    invoke-static {v8, v9}, Lio/michaelrocks/paranoid/Deobfuscator$app$Debug;->getString(J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v1, v5}, Lpubgm/loader/Component/Prefs;->read(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    const-string v0, "ۜۨۙۦۨۜۨۡ۟ۨۢۚۦۢۜۘۧۜۤۚ۟ۘ۠۠ۙۘ۬ۙۘۙ۠۟۠ۜۜۘۘۥ۬۠ۦۧۦۘۧۚۙۥ۬ۡۘ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_90
+    const v1, 0x7f4ea700
+
+    const-string v0, "۠ۚ۫ۡ۠ۤۢۜۗۜۢ۠ۦۨۚ۟۫ۚۥۘۖۘۧۜۧۘۛۢۡۘۥ۬ۡۗۜۡۘۤۛۤ"
+
+    :goto_95
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v5
+
+    xor-int/2addr v5, v1
+
+    sparse-switch v5, :sswitch_data_1e8
+
+    goto :goto_95
+
+    :sswitch_9e
+    const-string v0, "ۙۤۜۘۙۦۖۙ۬ۦۘۡۢۘۘۖۘۦۗۢۘۥۜۘۙۢۨۘۧۤ۬ۘۛۤۢۘۥ۬ۥۥۘۗۤۡۘۡۜۤۨۢۥۜۧۢۡۤ۠۠ۜ۠"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_a3
+    const-string v0, "ۚۡۧۦۨۛ۠۫ۜۜۗۗۙۗۥۘۖۖۘۘۗۦۥۘۦۤ۫۟ۡۦۖۨۡۘ"
+
+    goto :goto_95
+
+    :sswitch_a6
+    const v5, -0x208018e2
+
+    const-string v0, "ۚۛۢ۠ۥۖۥۡۡۨۥۨۘ۟ۗۥ۟ۦۨۜۖۧۚۥۦۘۙۨۛۜۡۥ۠ۚۦ۟ۡۘۢۗۨۘۚۢ"
+
+    :goto_ab
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v7
+
+    xor-int/2addr v7, v5
+
+    sparse-switch v7, :sswitch_data_1fa
+
+    goto :goto_ab
+
+    :sswitch_b4
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c5
+
+    const-string v0, "ۦۡۘۜ۬ۤۤۚ۠۬ۗۥۚۦۥۘ۟ۜۤۥۤ۠ۦۢۘ۠ۥۥۘۤۘۨۨۜۘۗۙۖ۠ۢۦۘۢۧۘۘ"
+
+    goto :goto_ab
+
+    :cond_c5
+    const-string v0, "ۤۚ۫ۦۥۡۛۨۘۘۨۥۗۖۜۡ۬ۨۦۘۖۖۘۘۢ۠ۖۘ۟۠ۥۘ۟۬ۤۛۛۨۧۗۨۗۧۘ۠ۘۘ"
+
+    goto :goto_ab
+
+    :sswitch_c8
+    const-string v0, "ۛ۬ۜۘۡ۟ۚۢ۟۟ۨۥۖۘۧ۟۠ۖۚۜۖۥۚۧ۬ۚۙ۟ۖۘۖۛۡۤۨۥۗۚ۬ۖۛۙۗۖ"
+
+    goto :goto_ab
+
+    :sswitch_cb
+    const-string v0, "ۗۘۜ۬ۢۗۙۦۦۙۨ۬ۦۛۜۤۢۢۨۛۖ۟ۨۘۥۘۤۢ۠ۨۘۧۨۛۡۜۦۦۛۖۚۨۖۘۦۜۘ۠ۜۖۘ"
+
+    goto :goto_95
+
+    :sswitch_ce
+    const-string v0, "۠۬ۨۘۡ۬ۨۗ۫ۜۘۘۖۤۡۚۖۘۨۢ۠ۚۜۢۢۜۛ۟ۜۨۨۙ۫"
+
+    goto :goto_95
+
+    :sswitch_d1
+    const-string v0, "ۖۡۤۨۦۥۦۛۜۖۧۚۧۡۘ۟ۧۖ۫ۡۥۘۘۤۨۗۘۢۢۜۨۖۧۨۛۨۤۗۛۙۙ۬ۤۦ۟ۤۖ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_d6
+    const v1, -0x3f6ba30e
+
+    const-string v0, "ۤۦۢۤۢ۫ۘۨۥۛۘۜۘۛۥۥۨۨۥۧۜۜۛۦۘۘۚ۠ۡۧۤۛ"
+
+    :goto_db
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v5
+
+    xor-int/2addr v5, v1
+
+    sparse-switch v5, :sswitch_data_20c
+
+    goto :goto_db
+
+    :sswitch_e4
+    const-string v0, "ۡ۫ۦۘۡۢۘۨۚ۫ۤۧۙۗۡ۟ۡۗۖۘۜۘۖ۟۬۬ۨۖۘۛۢۡۘۘ۫ۢۚ۟ۙ۟ۛ۠ۢۦۘ۠ۚۥۜۘۘۤ۟ۥۘۘۨۦ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_e9
+    const-string v0, "ۖۚ۠ۢۜ۫ۗ۫۫۬ۨۨۘ۟۟ۜۘۥ۫۠ۙ۟ۛۡۘۨۘۧ۠۫ۙۨۨۘ"
+
+    goto :goto_db
+
+    :sswitch_ec
+    const v5, 0x53c8cbef
+
+    const-string v0, "ۡۦۦۘ۟۫ۤۨۖۖۘۦۡۜۘۙۖۥۥ۫ۦۘ۫ۜۘۖۖۚ۟ۤۘۛۗۤۥۤ۬ۜ۟ۙۜۜۚ۠ۢۘۘ"
+
+    :goto_f1
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v7
+
+    xor-int/2addr v7, v5
+
+    sparse-switch v7, :sswitch_data_21e
+
+    goto :goto_f1
+
+    :sswitch_fa
+    const-string v0, "ۖۛۢۜۜۡۘ۫ۚۡۘۦۘۡۨ۫ۥۘ۫۠۠ۗۖۘۘ۬ۜۗۚۤۗۨۤۛۘۥۘۖۤ۫ۦۨۡۥۗ۫۠ۗۖۘۙۡۦۘۘۢۥۘۛۢۗ"
+
+    goto :goto_db
+
+    :cond_fd
+    const-string v0, "ۥ۫ۢ۬ۘۨۘ۠ۚۢۙۙۢۙ۫ۖۘۧۚۗۘ۫ۧۛ۠ۘۘۙ۟۬ۦۦۜۧ۬ۦۘۨۛ۫ۗۢۦۘۤۢۥۘ"
+
+    goto :goto_f1
+
+    :sswitch_100
+    invoke-virtual {v3}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_fd
+
+    const-string v0, "ۗ۠ۚۛۛۖ۫ۙۛ۬ۡۖۦۖۘۛۙۜۘۘۢۛۦۚۗۢۨ۠ۧۡۙ"
+
+    goto :goto_f1
+
+    :sswitch_111
+    const-string v0, "ۦۥۧۘۘۛۥۜۘۙۥۡۨۡۚۗۢۘۘۘۨۙۢۘۘۦۜۗۢۜ۠۠ۚۨ۬ۦۦۘۛۜۨۘۦۘۧۘۧۜ۬۫۬ۥ"
+
+    goto :goto_f1
+
+    :sswitch_114
+    const-string v0, "ۗۙۦۘ۬ۗ۫ۦۤۖۘۗۢ۠ۜۤۦۘۛۜ۟ۨۚۖۡۘۘ۬۬۠ۘ۟ۢۛۤۥۘ۫ۗ۫ۙۦۤۦۙۛۛۚۘۚۛۡ"
+
+    goto :goto_db
+
+    :sswitch_117
+    const-string v0, "ۜۛۥۨۧۦۘۗۢۡۗۢۨۘۡۖۦۦۜۚۘۥۘۚۡۧۘۘۘۡۘۗ۬ۛ۠ۨۥ۟ۤۗۖ۫ۗ۫ۢۦۥ۬ۤۙۢۨۘ۬ۧۜۘ۬ۥۤ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_11c
+    const v0, 0x7f0700f6
+
+    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    const-string v0, "۫ۢۡۘۗۗ۠ۖۨۦۥ۠۫۟۟ۚۥ۫ۘۘۙۢۦۘ۫ۧ۟ۘ۠ۤۙۘ۟۠ۢۢۤۤۘ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_127
+    const v0, 0x7f0700e9
+
+    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    const-string v0, "ۖۢۖۨۚۛۖ۟ۘۦۛۨۘۗۗۡۘۙۧۖۘۨۤۖۢۨۙۚۙۧ۟ۛۚۗ۫۫ۗۗۖۨۘۛۥۜۘۧۚۥۛۙ۬"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_132
+    const v0, 0x7f090212
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/appcompat/widget/LinearLayoutCompat;
+
+    const-string v1, "ۖۛۥۘۡۤۚۗۡۜۧ۬ۥۘۘ۫ۡۘ۬ۛۜ۬ۡۧۡۚۨۢ۬۟ۤۗۚ"
+
+    move-object v6, v0
+
+    goto/16 :goto_8
+
+    :sswitch_140
+    iput-object v6, p0, Lpubgm/loader/activity/LoginActivity;->btnSignIn:Landroidx/appcompat/widget/LinearLayoutCompat;
+
+    const-string v0, "۟ۥۡۦۖۥۛۘۨۘۙۚۘۘ۫ۛ۟ۗۗۘ۬ۧ۟ۥۗۖ۫۬ۦۤۖ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_147
+    new-instance v0, Lpubgm/loader/activity/LoginActivity$1;
+
+    invoke-direct {v0, p0, v2, v3}, Lpubgm/loader/activity/LoginActivity$1;-><init>(Lpubgm/loader/activity/LoginActivity;Landroid/widget/EditText;Landroid/widget/EditText;)V
+
+    invoke-virtual {v6, v0}, Landroidx/appcompat/widget/LinearLayoutCompat;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v0, "ۛۡۚ۫ۧۖ۠ۦۘۡ۫۬۟ۢۦۘۘ۠ۦۘۘ۫ۨۧۥۘۘۨۜۤۢۘۦۚۤۗۢۦۚۙۨۘۗۧۨۘ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_154
+    new-instance v0, Lpubgm/loader/activity/LoginActivity$2;
+
+    move-object v1, p0
+
+    move-object v5, p0
+
+    invoke-direct/range {v0 .. v5}, Lpubgm/loader/activity/LoginActivity$2;-><init>(Lpubgm/loader/activity/LoginActivity;Landroid/widget/EditText;Landroid/widget/EditText;Landroid/widget/ImageView;Landroid/content/Context;)V
+
+    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v0, "ۢۨۙۘۜۨۘۙۧ۬ۦۧ۠ۤۦۜۘۗ۬ۡۘۡۥۚۜۨۡۘۜۤۤۦۖۖ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_163
+    const v0, 0x7f09035e
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/appcompat/widget/LinearLayoutCompat;
+
+    new-instance v1, Lpubgm/loader/activity/LoginActivity$3;
+
+    invoke-direct {v1, p0}, Lpubgm/loader/activity/LoginActivity$3;-><init>(Lpubgm/loader/activity/LoginActivity;)V
+
+    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/LinearLayoutCompat;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v0, "۫ۛۦۦۧۘۤ۠ۜۘ۫ۚۡۘۤۘۖۧۢۡۘۧۘۚۨۙۜۡ۫ۛۨۥ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_179
+    const v0, 0x7f090347
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/appcompat/widget/LinearLayoutCompat;
+
+    new-instance v1, Lpubgm/loader/activity/LoginActivity$4;
+
+    invoke-direct {v1, p0}, Lpubgm/loader/activity/LoginActivity$4;-><init>(Lpubgm/loader/activity/LoginActivity;)V
+
+    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/LinearLayoutCompat;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v0, "ۤۦۧۘۜۘۗۘۗۤۙۜۜۘۚۗ۫۬ۧۜۤ۬ۧ۫ۨۡۘۨۖۘ۠ۖۜۘۛۥ۠ۨۥ۠ۦۙۘۘۧ۟۬ۘۖ۠ۙۖۦ"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_18f
+    const-string v0, "ۖۢۖۨۚۛۖ۟ۘۦۛۨۘۗۗۡۘۙۧۖۘۨۤۖۢۨۙۚۙۧ۟ۛۚۗ۫۫ۗۗۖۨۘۛۥۜۘۧۚۥۛۙ۬"
+
+    move-object v1, v0
+
+    goto/16 :goto_8
+
+    :sswitch_194
+    return-void
+
+    nop
+
+    :sswitch_data_196
+    .sparse-switch
+        -0x7f6a3e17 -> :sswitch_179
+        -0x5c86e4a7 -> :sswitch_140
+        -0x509c3243 -> :sswitch_194
+        -0x4801dc7a -> :sswitch_127
+        -0x45a6d6c8 -> :sswitch_51
+        -0x42bc7f11 -> :sswitch_163
+        -0x3c50c494 -> :sswitch_18f
+        -0x2959afb4 -> :sswitch_154
+        -0x20d19ef9 -> :sswitch_37
+        -0xd65efc2 -> :sswitch_44
+        0x39d1a87 -> :sswitch_9e
+        0xfc10232 -> :sswitch_1c
+        0x17de3ed8 -> :sswitch_147
+        0x2d113ec2 -> :sswitch_132
+        0x37a47279 -> :sswitch_70
+        0x3c64eeea -> :sswitch_11c
+        0x3e260219 -> :sswitch_d6
+        0x65c0e3db -> :sswitch_20
+        0x78c74097 -> :sswitch_90
+        0x7c2e6688 -> :sswitch_2a
+    .end sparse-switch
+
+    :sswitch_data_1e8
+    .sparse-switch
+        -0xb1e7434 -> :sswitch_ce
+        0x1d22e837 -> :sswitch_a6
+        0x229fec17 -> :sswitch_9e
+        0x7c43fd66 -> :sswitch_d1
+    .end sparse-switch
+
+    :sswitch_data_1fa
+    .sparse-switch
+        -0x5c2a439f -> :sswitch_b4
+        -0x54547d83 -> :sswitch_cb
+        -0x1963b009 -> :sswitch_c8
+        0x16367d7c -> :sswitch_a3
+    .end sparse-switch
+
+    :sswitch_data_20c
+    .sparse-switch
+        -0x323439c6 -> :sswitch_117
+        -0x1fd6598 -> :sswitch_114
+        0x1dca8fb8 -> :sswitch_ec
+        0x52f98db7 -> :sswitch_e4
+    .end sparse-switch
+
+    :sswitch_data_21e
+    .sparse-switch
+        -0x58476f6f -> :sswitch_e9
+        -0x45c74b69 -> :sswitch_fa
+        -0x1adc0171 -> :sswitch_111
+        0x3c8ced3c -> :sswitch_100
+    .end sparse-switch
+.end method
+
+.method protected onActivityResult(IILandroid/content/Intent;)V
+    .registers 8
+
+    const-string v0, "ۚ۫ۜۘۙۢۨۢ۫ۙۛۖۦۛۢۢۖۖۖۘۖۧۘۤۘۘۚۥۦۗۘۦۦ۟ۧ۟۬ۛ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x51
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x1f7
+
+    const/16 v2, 0x157
+
+    const v3, 0x77471989
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_e2
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۨ۠ۖ۠۟ۦۤۛۨۛۧۡۘۗۙۥۘۡ۫ۧۤۨۚۧۗۤۧۗۗۦۢ۠"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "۠ۚۥۘۡ۟ۦۜۙۨۜ۫ۚۙۛۨۘۜۚۦۘۤ۠ۢۡۦۨۘۚ۫ۘۙۥۘۤۤ۠۫۫ۤ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    const-string v0, "ۨۗۦۛۛۢۨ۫ۖۘ۟۫ۛۙ۫ۡۗۢ۬ۘۨۡۘۨ۬۟ۗۙۜۜۦۧۘۙۚۧۛۡۙۨۨۗ۬۫ۡۜۧۘۘ۠۟ۚ"
+
+    goto :goto_2
+
+    :sswitch_1f
+    const-string v0, "ۤۙۜۘ۟ۧۜۖۦۥۘۘۧۨۡۗۗۤۥۜۘ۫۠ۜۘۛۗۖ۠ۡۚۖ۟ۤ۠ۤ۟ۖ۬۠"
+
+    goto :goto_2
+
+    :sswitch_22
+    invoke-super {p0, p1, p2, p3}, Lpubgm/loader/utils/ActivityCompat;->onActivityResult(IILandroid/content/Intent;)V
+
+    const-string v0, "ۖ۟ۘۘۢۧۦۘ۬ۧۛۗۦۡۘۨۘۚۛۨ۟ۢۛ۫۟ۜۡۗ۠ۜ۬ۤۖۦۖۜۧۘ۠ۢ۟ۥۘ۟ۦۢۨۙۥۢ۬ۨۜۜۘۜۢۦۘ"
+
+    goto :goto_2
+
+    :sswitch_28
+    const v1, 0x471b399c
+
+    const-string v0, "۫ۚ۠ۘ۠۟ۗۛۗۙۨۧۘۛۥ۠۫۬ۘ۠ۙۧۖۚۘۧۚۚۨ۫ۛۙۖۢۦۦۦ۬ۡۘۦۛۖۘ"
+
+    :goto_2d
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    xor-int/2addr v2, v1
+
+    sparse-switch v2, :sswitch_data_114
+
+    goto :goto_2d
+
+    :sswitch_36
+    const-string v0, "ۚۢۨۜ۬۬۟ۧۡۜۧۤۧۖ۟ۨۙۦۘ۬۟ۧۧۜۨۘ۬ۖۘۜۖ۫ۘۤۦ۟ۧۥۘ"
+
+    goto :goto_2d
+
+    :sswitch_39
+    const-string v0, "ۥۦ۬۠ۛۜ۠ۜۥ۠ۖۘ۬ۗۦ۫۫ۜۘۦۧ۟۬ۥۜ۟ۤ۬ۖۡۚ۟ۚۘۘۚۨۧۡۜۧۚۦۡۘۢۘۡۘۥۤۡۘۧ۠ۖۜ۠ۧ"
+
+    goto :goto_2d
+
+    :sswitch_3c
+    const v2, 0x1dfdca11
+
+    const-string v0, "ۛ۫ۖۘ۟ۡۘۛۘۨۘۥۘ۫ۛۡۚۧۨۘۙۘۢۖ۫ۨۘۙ۬ۥۘۧۗۛ"
+
+    :goto_41
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_126
+
+    goto :goto_41
+
+    :sswitch_4a
+    const-string v0, "ۚ۟ۢۘۚۚۚۦۥۘۢۖۨۘۛۖۘۘۛۖۥۥۨۦۥۡ۬۟ۨۘۧۜۗۛۥ۬ۛۨ۬۫ۛۨۘۙ۬ۖ"
+
+    goto :goto_2d
+
+    :cond_4d
+    const-string v0, "ۧۢۜۘۨ۬ۜۛۜۘۦۦۨۛۧۧۗۡۥ۬ۡۘۖ۫ۚۦۛۜۘۧۡۡۛۥۘ۟ۧۡ۟ۘۨ۟ۡۗ۬ۢ۠ۚۖۢۧۚۨۧۢ"
+
+    goto :goto_41
+
+    :sswitch_50
+    sget v0, Lpubgm/loader/activity/LoginActivity;->REQUEST_OVERLAY_PERMISSION:I
+
+    if-ne p1, v0, :cond_4d
+
+    const-string v0, "۟ۜ۫۬ۤۦۘ۬۠۟ۨ۫ۢۘۨۙۦۜۤۗۧۨۥ۠ۥۘۙ۬ۡۙ۟۟ۨ۟ۖۤۥۙ"
+
+    goto :goto_41
+
+    :sswitch_57
+    const-string v0, "ۦۦۚۖۗۜۘۚ۟۟ۡ۬ۢۛۥۦۖۙ۟ۚۥۦۘۗ۬ۥۘۙۧۘۢۜ۟۫۫ۘۡۚۦ"
+
+    goto :goto_41
+
+    :sswitch_5a
+    const-string v0, "۟ۖۖۘۜۙ۫ۢۗۥۘ۫ۤۦۘۖۛۡۘۥۚۡۖۤۜۚۜۜۤۡۡۡۧۘۤۛۜۖۘۨۘ"
+
+    goto :goto_2
+
+    :sswitch_5d
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->InstllUnknownApp()V
+
+    const-string v0, "۬ۡ۠۠ۚۨ۠ۘۦۤ۫ۨۥ۟۬۟ۚۨۢ۬ۥۘۤۛۙۜۚ۟۫۬ۡۢۛۗ۬۫۬۟ۘۖۘ۟ۙ۬ۥۛۘۥۢ۠ۡۤۦۘۘۛۜۘ"
+
+    goto :goto_2
+
+    :sswitch_63
+    const v1, 0x419abc3b
+
+    const-string v0, "ۨۙۡۘ۟ۤۖۦ۟ۙ۬۬ۦۘۢ۬ۨۘ۬۟ۙۖۘۘۘ۫ۗ۠۟ۥۖۘۤۜۙ۟ۘ۬۠ۦۡۘ۟ۧۥۘۗۖۡۘ۠ۗۧ۟ۛۡ"
+
+    :goto_68
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    xor-int/2addr v2, v1
+
+    sparse-switch v2, :sswitch_data_138
+
+    goto :goto_68
+
+    :sswitch_71
+    const-string v0, "ۥۘ۫۬ۜۢۨۨ۫ۚۢۨۘۙۛۘ۟۬۟۠ۢۦۧۡۦۘۜۢ۫ۜۡۥۤ۫۠۫۬۫"
+
+    goto :goto_68
+
+    :sswitch_74
+    const-string v0, "ۦۙۨۘ۬ۦۖۦۙۧۦۛۨۘۢۨۡ۫ۘۖۛۥۧ۬ۘ۫ۙۖۤ۠۬ۙۗۡۨ۫۠ۥۗ۫ۚۡۤۖ"
+
+    goto :goto_68
+
+    :sswitch_77
+    const v2, -0x54dcef36
+
+    const-string v0, "ۧۖۛۧ۫ۤۨۘۘۢ۟۠۫ۡۜۜۗۡ۬ۨۧۘ۠ۜ۟ۦ۠ۥۘۙۢۖۜۤۧۨۥۡۘ۟ۖۡۘۢ۠ۛ"
+
+    :goto_7c
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_14a
+
+    goto :goto_7c
+
+    :sswitch_85
+    const-string v0, "ۛۚۦۘۚۥۤۧۨۛۤۛۜۜۜۚ۫۟ۘۘ۬۫ۗ۫۬ۖ۟ۥۘۧۤ۟ۖۙ۫ۘۖۧۘۦ۬۟۠ۘۨ۟ۥۙۜۢ۫"
+
+    goto :goto_68
+
+    :cond_88
+    const-string v0, "ۡۛۗۛۛ۫ۚۢۜۘۖۛ۠ۛۜۖۗۧۨۘۚ۟ۜۖۡۡۘۧۡۥۘ۠ۜ۠۫ۙ۬۠ۨۥ۟ۥۖۘ۟ۥۦۘ۬۟ۨۖ۬۠"
+
+    goto :goto_7c
+
+    :sswitch_8b
+    sget v0, Lpubgm/loader/activity/LoginActivity;->REQUEST_MANAGE_UNKNOWN_APP_SOURCES:I
+
+    if-ne p1, v0, :cond_88
+
+    const-string v0, "ۧۛۦۚۛ۬ۥ۫ۢ۬ۛۘ۬ۖۘۜ۫ۜۛۘۧۘۜۡ۠ۢۜۜۘۢۛۖۘۢۗۘۢۜۦۤۖ۠ۗۢۨۛۧۡۘۙۗۥۥۥ"
+
+    goto :goto_7c
+
+    :sswitch_92
+    const-string v0, "ۥۙۨۘۚۨۦۘۨۦۘۘۛۖۦ۫ۖۘ۫ۢۤۡۘۨۘۥۙۦۚۜۤۙۘ۟ۘۧۡ۬ۘ۟ۖۨۚۙۗۜ"
+
+    goto :goto_7c
+
+    :sswitch_95
+    const-string v0, "۫۠ۤۥۙۚ۬ۥۘۚۨۧۙۛۨۘۥۡۜۘ۫۬ۚۥۘ۫ۛۥۨۘۘۤۥۘۧۘ۠ۢۚۧ"
+
+    goto/16 :goto_2
+
+    :sswitch_99
+    const v1, -0x1a186f53
+
+    const-string v0, "ۗۤ۬ۜ۬ۡۘۛ۫ۧ۟ۧۡۦ۟ۥۢۥۨۘ۟ۤۡۦۡۜۗۡۦ۫ۥۘۢۚۘۢۥۙۘۚۙۨ۠ۡ"
+
+    :goto_9e
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    xor-int/2addr v2, v1
+
+    sparse-switch v2, :sswitch_data_15c
+
+    goto :goto_9e
+
+    :sswitch_a7
+    const-string v0, "ۜۦۤ۬۠ۘۘ۫ۚ۠۫ۙۙۗۥۘۘۘۧۘۨ۬ۡۨۦۡۘۢ۫ۧۘۡۢۢۡۚۦ۫۬۟۫ۚۙۧۥ۫۬ۧۥۜۖۤۡۘۡۢۘ"
+
+    goto/16 :goto_2
+
+    :sswitch_ab
+    const-string v0, "ۚۗ۫ۥ۠ۤۦ۬ۛۦۦ۬ۜۛۧۥۚۛۢۦۥۘۡۗۨ۟ۛ۟ۡۡۦۢۨۨۘ۠۟ۦۘ"
+
+    goto :goto_9e
+
+    :sswitch_ae
+    const v2, -0x29ffaf19
+
+    const-string v0, "ۖۧۨۤۖۙۦۥۚۢۛۘۡۛ۟ۜۧۜۙۧ۬ۖۡۘۘۤۥ۟ۡ۟ۡ۬ۜۦ۟ۗۧۥۚ۠ۥ۟۠ۘۧ۬۟ۖۨۘ"
+
+    :goto_b3
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_16e
+
+    goto :goto_b3
+
+    :sswitch_bc
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->isPermissionGaranted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_c5
+
+    const-string v0, "۬۠ۡۦۦ۫۠۟ۦۘۙ۫ۧۛۗ۬ۜ۠ۦۡۘۡۙۗۜۡۨۡۘۜ۠ۛۥۨۨۦ۠ۦۘۙۖ۬۟ۥ۬ۡ۬۬ۙ۠ۜۘ"
+
+    goto :goto_b3
+
+    :cond_c5
+    const-string v0, "ۦ۫ۥۘ۟ۨۖ۬ۗ۟ۧۤۥۜۥۛۚۜۘۢۤ۟ۙۦۡۚۢ۠ۜۗۡ۬۟ۡ۟ۦ"
+
+    goto :goto_b3
+
+    :sswitch_c8
+    const-string v0, "ۙۜۗۥۤۘۢۦ۟ۨۢۜ۬ۘۨۘ۬ۤۢۡۖۙۡۙ۠ۨۜۗ۫ۖ"
+
+    goto :goto_b3
+
+    :sswitch_cb
+    const-string v0, "ۖۚۦۘۧۥۦۜۢۢۗ۟ۖۘۤ۠۟ۚۘۢ۫ۡۥۥۧۘۗ۬ۚۗۧۤ۟۫۠ۡۙۨ۠ۙۨۘۥۨۛۘۢۚۧۘۚۥ۠ۜۖۥۙ"
+
+    goto :goto_9e
+
+    :sswitch_ce
+    const-string v0, "ۚۧۘۘۡۨۖۘۦۧ۠ۨۨۧۘۚۥۛۚۧ۠ۧۛۦۘۧۘۧۧۚۡ۠۠ۦۦ۠ۡۘۛۥۜ"
+
+    goto :goto_9e
+
+    :sswitch_d1
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->takeFilePermissions()V
+
+    const-string v0, "ۜۤۖۦۧۘۘۨۥۙۖ۫۠ۜ۟ۤۗۖۦۘۜۜۘ۟۟ۗۚۥۛۙۤ۬"
+
+    goto/16 :goto_2
+
+    :sswitch_d8
+    const-string v0, "ۡۗۨۤۨۤۚۡۘۢۨۜۘۚۛۡۘۡۧۡۛۙۖۘۛۛ۬۟ۦ۬ۖۖۖۘۨۜۥۖۧۜ۫ۜۧۘ۫ۜ۟ۛۛ۠"
+
+    goto/16 :goto_2
+
+    :sswitch_dc
+    const-string v0, "ۜۤۖۦۧۘۘۨۥۙۖ۫۠ۜ۟ۤۗۖۦۘۜۜۘ۟۟ۗۚۥۛۙۤ۬"
+
+    goto/16 :goto_2
+
+    :sswitch_e0
+    return-void
+
+    nop
+
+    :sswitch_data_e2
+    .sparse-switch
+        -0x56cc750f -> :sswitch_28
+        -0x35140f24 -> :sswitch_e0
+        -0x34e42113 -> :sswitch_5d
+        -0x2ff1f4c0 -> :sswitch_19
+        -0x105ee635 -> :sswitch_99
+        -0xaabc0e1 -> :sswitch_63
+        0xf68647f -> :sswitch_1c
+        0x1574518f -> :sswitch_16
+        0x2ca174d2 -> :sswitch_dc
+        0x3c350e57 -> :sswitch_22
+        0x644b05fe -> :sswitch_1f
+        0x6f741bbc -> :sswitch_d1
+    .end sparse-switch
+
+    :sswitch_data_114
+    .sparse-switch
+        -0x12ad0438 -> :sswitch_3c
+        0x5c1096c -> :sswitch_5a
+        0x19f5e1d3 -> :sswitch_d8
+        0x3ff17069 -> :sswitch_36
+    .end sparse-switch
+
+    :sswitch_data_126
+    .sparse-switch
+        -0x2018c758 -> :sswitch_57
+        -0x11738c30 -> :sswitch_39
+        0x196c1b8 -> :sswitch_4a
+        0x2432aa96 -> :sswitch_50
+    .end sparse-switch
+
+    :sswitch_data_138
+    .sparse-switch
+        0x23eb357 -> :sswitch_77
+        0x368d728e -> :sswitch_dc
+        0x755103c3 -> :sswitch_71
+        0x7b8755ac -> :sswitch_95
+    .end sparse-switch
+
+    :sswitch_data_14a
+    .sparse-switch
+        -0x31ecea27 -> :sswitch_92
+        0x1c7243b4 -> :sswitch_74
+        0x401212bf -> :sswitch_8b
+        0x5871b47d -> :sswitch_85
+    .end sparse-switch
+
+    :sswitch_data_15c
+    .sparse-switch
+        -0x4d53c095 -> :sswitch_ae
+        0x22bf56db -> :sswitch_a7
+        0x50df3947 -> :sswitch_ce
+        0x6bf427d8 -> :sswitch_dc
+    .end sparse-switch
+
+    :sswitch_data_16e
+    .sparse-switch
+        -0x68b72bbb -> :sswitch_bc
+        -0x32e6b731 -> :sswitch_cb
+        0x25fd0d8e -> :sswitch_c8
+        0x3d331424 -> :sswitch_ab
+    .end sparse-switch
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .registers 6
+
+    const-string v0, "ۛ۟ۜۘۜۢۧۥۜۜ۟ۚۨۘۗۘۤۙۘۦۘۚۨۧۢ۬۬ۙۦۜۘۧۘۡ۟ۧۢ۫ۜۚۨۜۙۚۙ۟ۧۢۚۘۨۦ۫ۤۘ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x2a7
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x36c
+
+    const/16 v2, 0x87
+
+    const v3, -0x6ff63d96
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_96
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۛۜۧۘۗۡ۬ۥۙۘۘۜ۬ۖۘ۬ۧۡۤۙۗۙۡۚۛ۠ۥ۫ۡۨۛۜۢۡۚۦۚۧۜۥۘ۫۠ۧ"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "ۖۜۙ۬ۧۦۘۡۤۨۘۚۘۦۜۥۡۘ۠ۘ۟ۦۧۡۘۗۘۦۘۙۖۨ۟۟ۡۘۜۙۢ۟ۘۨۘ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    invoke-super {p0, p1}, Lpubgm/loader/utils/ActivityCompat;->onCreate(Landroid/os/Bundle;)V
+
+    const-string v0, "۫۟۠ۧۘۛۧۤ۠ۦۘۨۨ۟۬ۙۚۖۘۗ۫ۧۧۡۘ۟ۢۤۧۖۦ۬۠۬ۘ۟۬ۚۜۛۢۨۡۘۤ۬ۛۢۜۜ"
+
+    goto :goto_2
+
+    :sswitch_22
+    invoke-direct {p0, p0}, Lpubgm/loader/activity/LoginActivity;->setLightStatusBar(Landroid/app/Activity;)V
+
+    const-string v0, "ۤۛۡۘۙۖۛۥۧۧۚۗۥۘۗ۠۬ۗۦۘ۠ۚۘۚۦۙۘ۠ۘۚۤۖۘۦۤۨۘۧۦۖۡۥ۟ۙ۟ۚۖۨۘۜۨۖۢۘۗۦۦ۫"
+
+    goto :goto_2
+
+    :sswitch_28
+    new-instance v0, Lpubgm/loader/utils/myTools;
+
+    invoke-direct {v0, p0}, Lpubgm/loader/utils/myTools;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lpubgm/loader/activity/LoginActivity;->m:Lpubgm/loader/utils/myTools;
+
+    const-string v0, "ۦۖۧۘۖ۫ۡۛ۠۠۫ۖۜۘۤۘۦۧۘۡۢۧۗۤۛۨۤۥۗۙۚ۫ۜۚۧۧ۬ۘۧ۬۟ۨۙ۬ۧ۫۫ۖۨۘۢ۟ۗۡۙۧ"
+
+    goto :goto_2
+
+    :sswitch_32
+    const v0, 0x7f0c001d
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->setContentView(I)V
+
+    const-string v0, "ۦ۠ۥۤۘۡۨۜ۬۠ۗۘۘۗ۬ۡۘۦ۠ۖۘ۬ۙۖۘ۫ۜۚۧ۠۠ۡۤۧ۠ۜۘۗۨۥۘ"
+
+    goto :goto_2
+
+    :sswitch_3b
+    const v1, -0x38ccc3ff
+
+    const-string v0, "ۛ۠ۤ۟۠۠ۜۙ۠ۜۚۨ۬۬ۖۧ۠ۛۙۨۜۘۨۢۨۤۘۚ۫ۗۗۥۦۢۡۚۨۘۗ۬۠۠ۛۗ"
+
+    :goto_40
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    xor-int/2addr v2, v1
+
+    sparse-switch v2, :sswitch_data_cc
+
+    goto :goto_40
+
+    :sswitch_49
+    const-string v0, "ۙۜ۬ۦۡۡۘۨ۟ۢۨۥۜۙ۫ۖۘۥ۟ۜۡۨ۟ۙۗۚۤ۠ۗۦۦۥۡۜۡۤۘ۫۬ۧۖۡ۬ۘۘۡۡۡۨۢۡۘ"
+
+    goto :goto_2
+
+    :sswitch_4c
+    const-string v0, "ۛۥۜۘۧ۫ۚ۬۬۠ۨ۫ۜۘ۬ۗۦۖ۫ۢ۬ۤۥۖۢۧۦ۠ۛ۫ۡۛۙۛۥۘۚ۬ۥۘۙ۫ۜۢۛۧ"
+
+    goto :goto_40
+
+    :sswitch_4f
+    const v2, 0x2f97b043
+
+    const-string v0, "ۜۚۘ۬ۙۙۧۗۛ۫۫ۗۤ۠ۖۡۚۧۥۦۘۘۧۨۨۙۡۘۚ۟ۨۥۨۥۡ۟ۤۗ۫ۡۗۢۛ"
+
+    :goto_54
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_de
+
+    goto :goto_54
+
+    :sswitch_5d
+    const-string v0, "۫ۛۥۘ۫ۥۘ۠ۥۛۡ۫ۨۤۘۜۤۡۦۘۦۥۧۖ۫ۡۗۗۦ۠ۗۡۘۥۥۜۖۗۦۖ۫ۧۢۗۡ۠ۜۡۘۧۖۚۦۖۜۘ۫ۚۤ"
+
+    goto :goto_54
+
+    :cond_60
+    const-string v0, "ۘۗۥۘ۫۟ۨۙۥۛۨ۫ۙ۬۬۫ۤۡ۫۫ۜۦۢۘۨۘۡۦ۫ۜۥۡۘۢۚۨۘۦ۟۟ۢۦۨۥ۠ۘۘۙۖۥۘ۬ۡۙۥ۠۫ۚۗۥۘ"
+
+    goto :goto_54
+
+    :sswitch_63
+    sget-boolean v0, Lpubgm/loader/activity/SplashActivity;->mahyong:Z
+
+    if-nez v0, :cond_60
+
+    const-string v0, "ۜۨۗۡ۟ۥ۟ۡۘ۬ۘۢۛۖۧۨۗۦۨۖۦ۫ۧۢۨۢۨۨۧۖۘ۠۬ۗۛۢۨۘۨۨۦۗۥۖ۠ۡۜۘ۫ۡۡۘ"
+
+    goto :goto_54
+
+    :sswitch_6a
+    const-string v0, "ۚ۬۟ۢۧۙۚۘۦ۠ۜ۫۬ۢۚ۬ۙۡ۠ۘۥۡۨ۠۠ۘۘۧ۟۠۠۬ۘۘ۟ۧۦ"
+
+    goto :goto_40
+
+    :sswitch_6d
+    const-string v0, "ۡۡۡۘ۬ۧ۫ۦۖۧۜۘۧۘ۠ۙۧ۠ۥۥۘۤۡۦۘۡ۟ۜ۫۟ۜۧۤۧۢ۬ۢۘۥۢۚۗۗ۫ۥۘۤ۠ۨ"
+
+    goto :goto_40
+
+    :sswitch_70
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->finish()V
+
+    const-string v0, "ۛۧۛۥۙۜۘۜۙۨۘۢۢۢۥۦۡۘۦۚۨۘ۠۠ۥۘۢۧۖۤۨۨ۠۬ۖۜۧۥۘۥۗ۫۠ۜۧۨۚۢ"
+
+    goto :goto_2
+
+    :sswitch_76
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lpubgm/loader/activity/LoginActivity;->finishActivity(I)V
+
+    const-string v0, "۬ۤۨۥۛۨۘ۫۬ۥۘۙ۫ۨۢۘ۠ۨۗۥۦۡۨۘ۠ۥۙۘۙ۫ۚۗ۬"
+
+    goto :goto_2
+
+    :sswitch_7d
+    invoke-direct {p0}, Lpubgm/loader/activity/LoginActivity;->initializeLanguageSpinner()V
+
+    const-string v0, "ۚۧۡۘۛۗۘۘۢۜۤۧۨۡۡۙۖۘۢ۟ۡ۠ۡ۠ۙۙۙۖۢۤۖۙۤ"
+
+    goto :goto_2
+
+    :sswitch_83
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->initDesign()V
+
+    const-string v0, "ۛ۠ۦۢۙۙ۫ۥۘۘۨۢۦۥۧۡۘۧ۠ۙۘۧۦۗۡۤۧۚۢ۟۠ۙۦۘۚۚۛۘۙۨۖۛۤۘۖۘۡۖۛ۟ۘ۠ۛۗۛ"
+
+    goto/16 :goto_2
+
+    :sswitch_8a
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->OverlayPermision()V
+
+    const-string v0, "ۢ۠ۛ۫ۨ۟۫ۥۛۤۛ۫ۢۦۘۡۧۖۙۙۙۥۢ۫۟ۧ۟ۤۖۘۖۡۦۘۛۘۢ"
+
+    goto/16 :goto_2
+
+    :sswitch_91
+    const-string v0, "۬ۤۨۥۛۨۘ۫۬ۥۘۙ۫ۨۢۘ۠ۨۗۥۦۡۨۘ۠ۥۙۘۙ۫ۚۗ۬"
+
+    goto/16 :goto_2
+
+    :sswitch_95
+    return-void
+
+    :sswitch_data_96
+    .sparse-switch
+        -0x7d06c40a -> :sswitch_22
+        -0x79d02db4 -> :sswitch_70
+        -0x79a8babb -> :sswitch_8a
+        -0x754c8eaa -> :sswitch_95
+        -0x74d0536f -> :sswitch_83
+        -0x6d5d6018 -> :sswitch_19
+        -0x64ed3d88 -> :sswitch_3b
+        -0x6366effd -> :sswitch_16
+        0x1a937710 -> :sswitch_7d
+        0x281c2928 -> :sswitch_76
+        0x312126af -> :sswitch_1c
+        0x5e67e668 -> :sswitch_28
+        0x5e6e10e1 -> :sswitch_32
+    .end sparse-switch
+
+    :sswitch_data_cc
+    .sparse-switch
+        0x52d1781 -> :sswitch_6d
+        0x2d98ad54 -> :sswitch_49
+        0x352485d0 -> :sswitch_91
+        0x4f0dca67 -> :sswitch_4f
+    .end sparse-switch
+
+    :sswitch_data_de
+    .sparse-switch
+        -0x3c301779 -> :sswitch_4c
+        -0x237b5bcd -> :sswitch_6a
+        0x2d32930d -> :sswitch_63
+        0x4191b4d7 -> :sswitch_5d
+    .end sparse-switch
+.end method
+
+.method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
+    .registers 8
+
+    const-string v0, "ۡۖۥۛۖۤۥۙۥۘ۟ۘۥۘۤۢ۫ۖۘ۬ۚۦ۠ۨۤۜ۫ۜۘۧۘۨۘۗ۬ۚۢ۫۬ۤۛۘۘۥۢۡۚ۫ۡۘۡۖۙۜۘۡۘۥۙۚ"
+
+    :goto_2
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    const/16 v2, 0x159
+
+    xor-int/2addr v1, v2
+
+    xor-int/lit16 v1, v1, 0x34d
+
+    const/16 v2, 0x120
+
+    const v3, 0x77847dd4
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    sparse-switch v1, :sswitch_data_68
+
+    goto :goto_2
+
+    :sswitch_16
+    const-string v0, "ۤ۬ۨۘ۬ۦ۠۠ۧۜۘ۠۫ۦۦۖۡۨ۟ۨۘۚۥۢۖۥ۠ۙۨۦۘۚۥۨۚۚۥۘۛۡ۫ۥۖۘۘۡۗ۫ۙۥۙۚۛۥۘۥ۠ۨۘۡۥۨۘ"
+
+    goto :goto_2
+
+    :sswitch_19
+    const-string v0, "ۖۦۚۖ۟۫ۜۨۙۜۢۡۤۦ۟۠ۘۜۧۥۧۦۖۘۧۗۦۘۙۡۦۤۦۗۗ۠ۖۜۦۖۘۚۘۤ"
+
+    goto :goto_2
+
+    :sswitch_1c
+    const-string v0, "ۛۖ۫ۖۗۨۡۛۛۦ۠ۨ۟۠ۘ۟ۖۚۘۡۜۚۥۢۦۙۛ۬ۧۖۘۡۛ۠۠ۤۨۘ۬ۥۦ۫۬ۧۘۦۦۘۘۚۦۘ"
+
+    goto :goto_2
+
+    :sswitch_1f
+    const-string v0, "ۗۤۦۘۖ۫ۢۙۨۧۡۛۘۤ۟۫ۦۘۙۛۡۘ۫ۖۧۘۜۡۗۘ۠ۘۘۗۤ۬۠ۦ"
+
+    goto :goto_2
+
+    :sswitch_22
+    invoke-super {p0, p1, p2, p3}, Lpubgm/loader/utils/ActivityCompat;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
+
+    const-string v0, "ۢۙۨۘۜۗۜۘۡۗۥۤۘۧۘۙۢۘۖۜ۠۫ۧۦۘۦۘۦ۟ۜۡ۟ۤ۠ۚۘۤۡۦۖۚۗۚۡۦۖۢ۠۫۬۬ۚ"
+
+    goto :goto_2
+
+    :sswitch_28
+    const v1, -0x5e145ec
+
+    const-string v0, "۫ۧۨۘۦۢۖۘۚۛ۬ۨۜۥ۬ۖۛۗ۟ۚۧ۫ۖۗۨۖۘۢۗۛۡۧۤۤۛۢ۟ۚ۬ۥۜۨ۬ۡۖۘ۟ۤۨۘۘۗۡۛۙۦۘۡۙۡۘ"
+
+    :goto_2d
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    xor-int/2addr v2, v1
+
+    sparse-switch v2, :sswitch_data_8a
+
+    goto :goto_2d
+
+    :sswitch_36
+    const v2, 0x687c663f
+
+    const-string v0, "ۗۛۖۘۖۗۜۛۛۚ۟ۤۘۜۦۘۡ۠ۤۤۤ۬ۖۦۘۢ۠۬ۗۧۦ"
+
+    :goto_3b
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    xor-int/2addr v3, v2
+
+    sparse-switch v3, :sswitch_data_9c
+
+    goto :goto_3b
+
+    :sswitch_44
+    const-string v0, "ۢۧۧ۟ۜ۟ۜۚ۟۫۫ۘۢۜۘۨۥۘ۫۫۟ۖ۟ۜۘ۬ۤۙۙۙۙۖۜۘ۫ۛۜ"
+
+    goto :goto_3b
+
+    :sswitch_47
+    const-string v0, "ۚۦۘۤۘۙ۠۬ۤۧۦۛۤ۬ۚ۫۠۟ۘۤۘۨۛۦ۫ۛۜۥۚۦۘۗۦۧ۬ۜۨ۟ۥۚۢۘ۫ۙۢۜ۫۠ۦۦۨۡۘۡۜۜ"
+
+    goto :goto_2d
+
+    :cond_4a
+    const-string v0, "ۙۜۧۘۥۨۛ۫ۨۗۜ۫ۡۘۦۥۡۨۨۚ۠ۜۡۙۖۛۥۧۙ۟ۛۜۘ۟ۥۘۨ۟ۜۘۡۡۘۘۢۗۨۘ"
+
+    goto :goto_3b
+
+    :sswitch_4d
+    sget v0, Lpubgm/loader/activity/LoginActivity;->PERMISSION_REQUEST_STORAGE:I
+
+    if-ne p1, v0, :cond_4a
+
+    const-string v0, "ۖۙۨۘۨۨ۠ۧۗۗۜ۟ۖ۠۫ۥۘ۬ۖۖۘۤۢۡۗۥۡۡۘۖۥۚۡۘۚۧۡۗۘۘۖۖ۠۠ۛۢۗۨ۟ۚۛ"
+
+    goto :goto_3b
+
+    :sswitch_54
+    const-string v0, "ۧ۫ۗۘ۫۫ۡ۟ۘۘۥۦۧۚۛ۫ۥۢۖۥۢۗۢۤۛ۬ۤۘۘۦۚ۟۬۟۫ۗۜۡ۠ۜ۟ۥۚۢۤۦۜۘۤۜ۬ۘ۠ۨۘ۬۫"
+
+    goto :goto_2d
+
+    :sswitch_57
+    const-string v0, "ۙۖ۠ۡ۟ۛۨ۠۠۫۫ۡۧۚۗ۠۫ۢ۬ۘۘ۫ۚۨۧۘۤۡۧ۫ۛۥۧۘۥۖۨۘۗۤۡۢۦۘ"
+
+    goto :goto_2d
+
+    :sswitch_5a
+    const-string v0, "ۡ۠ۡۘۘۚۘۨۥۘۖ۬ۤۥۖۥ۫ۗۨۘۡ۬۟۟۠۬ۦۙۤۨۚ۫ۥ۟ۧۘۗۙ"
+
+    goto :goto_2
+
+    :sswitch_5d
+    invoke-virtual {p0}, Lpubgm/loader/activity/LoginActivity;->OverlayPermision()V
+
+    const-string v0, "ۦ۬ۥۦۨ۫ۧۚۥۘ۠ۤۨۘۤۨۦۙۤۘۧۗۥۖۦۘۖۨۘۘۨۦۙۘۦۜۚۖۢۡۘۨۖۤ"
+
+    goto :goto_2
+
+    :sswitch_63
+    const-string v0, "ۦ۬ۥۦۨ۫ۧۚۥۘ۠ۤۨۘۤۨۦۙۤۘۧۗۥۖۦۘۖۨۘۘۨۦۙۘۦۜۚۖۢۡۘۨۖۤ"
+
+    goto :goto_2
+
+    :sswitch_66
+    return-void
+
+    nop
+
+    :sswitch_data_68
+    .sparse-switch
+        -0x61a22172 -> :sswitch_22
+        -0x5f49596a -> :sswitch_1f
+        -0x582db40e -> :sswitch_1c
+        -0x4f8e65cd -> :sswitch_16
+        -0x4b135ba0 -> :sswitch_66
+        -0x331fa4c6 -> :sswitch_19
+        0x82161e8 -> :sswitch_28
+        0x594b6a09 -> :sswitch_5d
+    .end sparse-switch
+
+    :sswitch_data_8a
+    .sparse-switch
+        -0x2f23210b -> :sswitch_5a
+        0x6847a26 -> :sswitch_63
+        0x347f7ce9 -> :sswitch_57
+        0x75106562 -> :sswitch_36
+    .end sparse-switch
+
+    :sswitch_data_9c
+    .sparse-switch
+        -0x4af7b949 -> :sswitch_47
+        -0x30f2d4ea -> :sswitch_4d
+        -0x24614b83 -> :sswitch_54
+        0xae99912 -> :sswitch_44
+    .end sparse-switch
+.end method
